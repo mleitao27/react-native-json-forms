@@ -1,0 +1,20 @@
+{
+  "name": "react-native-json-forms",
+  "version": "1.0.1",
+  "description": "Creates forms in react native from json.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mleitao27/react-native-json-forms.git"
+  },
+  "keywords": [
+    "npm",
+    "react-native-json-forms"
+  ],
+  "author": "Miguel Leitão",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mleitao27/react-native-json-forms/issues"
+  },
+  "homepage": "https://github.com/mleitao27/react-native-json-forms#readme"
+}
