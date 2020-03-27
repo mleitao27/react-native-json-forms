@@ -7,6 +7,13 @@
     "type": "git",
     "url": "git+https://github.com/mleitao27/react-native-json-forms.git"
   },
+  "peerDependencies": {
+    "react": "^16.4.0"
+  },
+  "scripts": {
+    "start": "webpack --watch",
+    "build": "webpack"
+  },
   "keywords": [
     "npm",
     "react-native-json-forms"
@@ -16,5 +23,18 @@
   "bugs": {
     "url": "https://github.com/mleitao27/react-native-json-forms/issues"
   },
-  "homepage": "https://github.com/mleitao27/react-native-json-forms#readme"
+  "homepage": "https://github.com/mleitao27/react-native-json-forms#readme",
+  "dependencies": {
+    "react": "^16.13.1",
+    "webpack": "^4.42.1"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "babel-preset-env": "^1.7.0",
+    "webpack-cli": "^3.3.11"
+  }
 }
