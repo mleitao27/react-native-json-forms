@@ -1,40 +1,29 @@
 {
   "name": "react-native-json-forms",
-  "version": "1.0.6",
-  "description": "Creates forms in react native from json.",
-  "main": "index.js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "peerDependencies": {
+    "react": "^16.13.0",
+    "react-native": "^0.62.0"
+  },
+  "devDependencies": {
+    "babel-jest": "22.4.4",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "22.4.4",
+    "react-test-renderer": "16.3.1"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mleitao27/react-native-json-forms.git"
   },
-  "peerDependencies": {
-    "react": "^16.4.0"
-  },
-  "scripts": {
-    "start": "webpack --watch",
-    "build": "webpack"
-  },
-  "keywords": [
-    "npm",
-    "react-native-json-forms"
-  ],
   "author": "Miguel Leitão",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/mleitao27/react-native-json-forms/issues"
   },
-  "homepage": "https://github.com/mleitao27/react-native-json-forms#readme",
-  "dependencies": {
-    "react": "^16.13.1",
-    "webpack": "^4.42.1"
-  },
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^8.1.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "babel-preset-env": "^1.7.0",
-    "webpack-cli": "^3.3.11"
-  }
+  "homepage": "https://github.com/mleitao27/react-native-json-forms#readme"
 }
