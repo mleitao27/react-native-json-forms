@@ -11,7 +11,7 @@
     "url": "git+https://github.com/mleitao27/react-native-json-forms.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.15",
     "prop-types": "^15.7.2",
