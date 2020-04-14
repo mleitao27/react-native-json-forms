@@ -8,7 +8,7 @@ import {
   Dimensions
 } from "react-native";
 
-import Colors from "../../constants/colors";
+import Colors from "../constants/colors";
 
 // Range inserted by user built with react native Slider component
 const RangeElement = props => {

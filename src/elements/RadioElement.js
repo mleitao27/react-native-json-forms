@@ -10,6 +10,8 @@ import {
 
 import Icon from "react-native-vector-icons/Ionicons";
 
+import Colors from "../constants/colors";
+
 // Radio choice inserted by user built with react native Icon and TouchableOpacity component
 const RadioElement = props => {
 

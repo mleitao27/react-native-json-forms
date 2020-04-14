@@ -8,7 +8,7 @@ import {
   Dimensions 
 } from "react-native";
 
-import Colors from "../../constants/colors";
+import Colors from "../constants/colors";
 
 // Multiple Text Boxes inserted by user built with react native TextInput component
 const MultipleTextElement = props => {

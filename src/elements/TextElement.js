@@ -8,7 +8,7 @@ import {
   Dimensions
 } from "react-native";
 
-import Colors from "../../constants/colors";
+import Colors from "../constants/colors";
 
 // Text inserted by user built with react native TextInput component
 const TextElement = props => {
