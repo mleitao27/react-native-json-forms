@@ -14,7 +14,19 @@
   "license": "ISC",
   "dependencies": {
     "lodash": "^4.17.15",
-    "prop-types": "^15.7.2"
+    "prop-types": "^15.7.2",
+    "@react-native-community/cameraroll": "^1.5.2",
+    "@react-native-community/datetimepicker": "^2.3.1",
+    "@react-native-community/masked-view": "0.1.5",
+    "expo": "~36.0.0",
+    "expo-camera": "~8.0.0",
+    "expo-document-picker": "~8.0.0",
+    "expo-file-system": "~8.0.0",
+    "expo-location": "~8.0.0",
+    "expo-media-library": "~8.0.0",
+    "expo-permissions": "~8.0.0",
+    "react-native-webview": "7.4.3",
+    "react-native-vector-icons": "^6.6.0"
   },
   "bugs": {
     "url": "https://github.com/mleitao27/react-native-json-forms/issues"
