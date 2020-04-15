@@ -65,6 +65,10 @@ The JSON file is organized in pages, where each page is an object with a name an
 ```
 
 ## Coming Soon
+The issues found will be solved and implemented in future versions. Issues to be solved soon:
+- Matrix and Matrix Dropdown fix layout
+- Matrix Dynamic
+- Panel and Panel Dynamic implementation
 ## Contributors
 - Miguel Leitão
 - Guilherme Eugénio
