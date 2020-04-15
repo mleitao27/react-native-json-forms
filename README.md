@@ -3,7 +3,9 @@
 [![npm version](https://img.shields.io/npm/v/react-native-json-forms.svg?style=flat)](https://www.npmjs.com/package/react-native-json-forms)
 
 ## Description
-Tool to create forms in React Native from a JSON file containing the form description. This tool is compatible with forms created using [SurveyJS](https://surveyjs.io/) but contains some extra features and also allows extensions. Information about the elements can be found in the Wiki's [Elements Page](https://github.com/mleitao27/react-native-json-forms/wiki/Elements), there can be found brief description about the different form element that can be used, how to use them and the data extracted from their answers. Information about how to implement the extension mechanism is in the Wiki's [Extensions Page](https://github.com/mleitao27/react-native-json-forms/wiki/Extensions).
+Tool to create forms in React Native from a JSON file containing the form description. This tool is compatible with forms created using [SurveyJS](https://surveyjs.io/) but contains some extra features and also allows extensions. It was built for applications that are being developed using [Expo](https://expo.io/).
+
+Information about the elements can be found in the Wiki's [Elements Page](https://github.com/mleitao27/react-native-json-forms/wiki/Elements), there can be found brief description about the different form element that can be used, how to use them and the data extracted from their answers. Information about how to implement the extension mechanism is in the Wiki's [Extensions Page](https://github.com/mleitao27/react-native-json-forms/wiki/Extensions).
 
 ## Installation
 ```
@@ -11,7 +13,7 @@ $ npm install --save react-native-json-forms
 ```
 
 ## Usage
-Bellow there is an example of usage of the **Form** component imported from the package. The **FormScreen** can be any application screen used as a parent component.
+Bellow there is an example of usage of the **Form** component imported from the package. The **FormScreen** can be any application screen used as a parent component. After importing the component from the previously installed npm package, the JSON with the form structure and the extension, the **Form** component can be rendered inside of a **ScrollView** to allow the user to scroll through the form questions, since most form will probably be bigger than a single screen.
 ```javascript
 // Import stuff from react and react-native
 import React from 'react';
@@ -71,11 +73,14 @@ The issues found will be solved and implemented in future versions. Issues to be
 - [Image Picker use dimensions](https://github.com/mleitao27/react-native-json-forms/issues/3)
 - [Matrix Dynamic implementation](https://github.com/mleitao27/react-native-json-forms/issues/6)
 - [Panel and Panel Dynamic implementation](https://github.com/mleitao27/react-native-json-forms/issues/7)
+- [Make extension optional](https://github.com/mleitao27/react-native-json-forms/issues/8)
 
 Please leave your contribution in the [Issues](https://github.com/mleitao27/react-native-json-forms/issues) section.
+
 ## Contributors
-- Miguel Leitão @ <mleitao27@gmail.com>
-- Guilherme Eugénio @ <mleitao27@gmail.com>
+- Miguel Leitão @ <m>
+- Guilherme Eugénio @ <g>
+
 ## License and Copyright
 © Miguel Leitão and Guilherme Eugénio, INESC-ID  
 Licensed under the [MIT License](LICENSE)
