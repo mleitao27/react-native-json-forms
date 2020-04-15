@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/react-native-json-forms.svg?style=flat)](https://www.npmjs.com/package/react-native-json-forms)
 
 ## Description
-Tool to create forms in React Native from a JSON file containing the form description. This tool is compatible with forms created using [SurveyJS](https://surveyjs.io/) but contains some extra features and also allows extensions. Information about the elements can be found in the [Elements Page](https://github.com/mleitao27/react-native-json-forms/wiki/Elements) and information about extensions is in the [Extensions Page](https://github.com/mleitao27/react-native-json-forms/wiki/Extensions).
+Tool to create forms in React Native from a JSON file containing the form description. This tool is compatible with forms created using [SurveyJS](https://surveyjs.io/) but contains some extra features and also allows extensions. Information about the elements can be found in the [Elements Page](https://github.com/mleitao27/react-native-json-forms/wiki/Elements), there can be found brief description about the different form element that can be used, how to use them and the data extracted from their answers. Information about how to implement the extension mechanism is in the [Extensions Page](https://github.com/mleitao27/react-native-json-forms/wiki/Extensions).
 
 ## Installation
 ```
@@ -42,11 +42,11 @@ export default FormScreen;
 ```
 
 ### Props
-#### json
+#### json:
 Passes a JSON file containing the description of the form structure and details.  
-#### extension
+#### extension:
 Passes a JavaScript file containing the description of the extension elements that the user wants to implement.
-#### onSubmit
+#### onSubmit:
 Passes a function that receives an JavaScript object as argument containing the answer to the form.
 ### JSON File
 The JSON file is organized in pages, where each page is an object with a name and an elements array. Bellow there is a snipet with the json structure with only one page. Possible content for the elements array can be found in the [Elements Page](https://github.com/mleitao27/react-native-json-forms/wiki/Elements) as mention above. 
@@ -63,3 +63,5 @@ The JSON file is organized in pages, where each page is an object with a name an
     ]
 }
 ```
+
+## Coming Soon
