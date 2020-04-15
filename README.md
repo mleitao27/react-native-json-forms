@@ -66,6 +66,8 @@ The JSON file is organized in pages, where each page is an object with a name an
 
 ## Coming Soon
 ## Contributors
-- Miguel Leitão <mleitao27@gmail.com>
+- Miguel Leitão
+- Guilherme Eugénio
 ## License and Copyright
-(c) Miguel Leitão
+© Miguel Leitão and Guilherme Eugénio, INESC-ID
+Licensed under the [MIT License](LICENSE)
