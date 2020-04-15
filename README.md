@@ -71,6 +71,7 @@ The issues found will be solved and implemented in future versions. Issues to be
 - [Image Picker use dimensions](https://github.com/mleitao27/react-native-json-forms/issues/3)
 - [Matrix Dynamic implementation](https://github.com/mleitao27/react-native-json-forms/issues/6)
 - [Panel and Panel Dynamic implementation](https://github.com/mleitao27/react-native-json-forms/issues/7)
+
 Please leave your contribution in the [Issues](https://github.com/mleitao27/react-native-json-forms/issues) section.
 ## Contributors
 - Miguel Leitão @ <mleitao27@gmail.com>
