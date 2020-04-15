@@ -78,8 +78,8 @@ The issues found will be solved and implemented in future versions. Issues to be
 Please leave your contribution in the [Issues](https://github.com/mleitao27/react-native-json-forms/issues) section.
 
 ## Contributors
-- Miguel Leitão @ <m>
-- Guilherme Eugénio @ <g>
+- Miguel Leitão @ <miguel.s.leitao@tecnico.ulisboa.pt>
+- Guilherme Eugénio @ <guilherme.eugenio@tecnico.ulisboa.pt>
 
 ## License and Copyright
 © Miguel Leitão and Guilherme Eugénio, INESC-ID  
