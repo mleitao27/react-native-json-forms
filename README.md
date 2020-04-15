@@ -3,7 +3,7 @@
 [![npm version](https://img.shields.io/npm/v/react-native-json-forms.svg?style=flat)](https://www.npmjs.com/package/react-native-json-forms)
 
 ## Description
-Tool to create forms in React Native from a JSON file containing the form description. This tool is compatible with forms created using [SurveyJS](https://surveyjs.io/) but contains some extra features and also allows extensions. Information about the elements can be found in the [Elements Page](https://github.com/mleitao27/react-native-json-forms/wiki/Elements), there can be found brief description about the different form element that can be used, how to use them and the data extracted from their answers. Information about how to implement the extension mechanism is in the [Extensions Page](https://github.com/mleitao27/react-native-json-forms/wiki/Extensions).
+Tool to create forms in React Native from a JSON file containing the form description. This tool is compatible with forms created using [SurveyJS](https://surveyjs.io/) but contains some extra features and also allows extensions. Information about the elements can be found in the Wiki's [Elements Page](https://github.com/mleitao27/react-native-json-forms/wiki/Elements), there can be found brief description about the different form element that can be used, how to use them and the data extracted from their answers. Information about how to implement the extension mechanism is in the Wiki's [Extensions Page](https://github.com/mleitao27/react-native-json-forms/wiki/Extensions).
 
 ## Installation
 ```
