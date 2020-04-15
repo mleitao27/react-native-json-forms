@@ -69,5 +69,5 @@ The JSON file is organized in pages, where each page is an object with a name an
 - Miguel Leitão
 - Guilherme Eugénio
 ## License and Copyright
-© Miguel Leitão and Guilherme Eugénio, INESC-ID
+© Miguel Leitão and Guilherme Eugénio, INESC-ID  
 Licensed under the [MIT License](LICENSE)
