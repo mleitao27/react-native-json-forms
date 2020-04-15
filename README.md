@@ -44,11 +44,11 @@ export default FormScreen;
 ```
 
 ### Props
-#### -json:
+#### - json:
 Passes a JSON file containing the description of the form structure and details.  
-#### -extension:
+#### - extension:
 Passes a JavaScript file containing the description of the extension elements that the user wants to implement.
-#### -onSubmit:
+#### - onSubmit:
 Passes a function that receives an JavaScript object as argument containing the answer to the form.
 ### JSON File
 The JSON file is organized in pages, where each page is an object with a name and an elements array. Bellow there is a snipet with the json structure with only one page. Possible content for the elements array can be found in the [Elements Page](https://github.com/mleitao27/react-native-json-forms/wiki/Elements) as mention above. 
