@@ -65,3 +65,7 @@ The JSON file is organized in pages, where each page is an object with a name an
 ```
 
 ## Coming Soon
+## Contributors
+- Miguel Leitão <mleitao27@gmail.com>
+## License and Copyright
+(c) Miguel Leitão
