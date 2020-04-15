@@ -66,12 +66,14 @@ The JSON file is organized in pages, where each page is an object with a name an
 
 ## Coming Soon
 The issues found will be solved and implemented in future versions. Issues to be solved soon:
-- Matrix and Matrix Dropdown fix layout
-- Matrix Dynamic
-- Panel and Panel Dynamic implementation
+- [Matrix and Matrix Dropdown fix layout](https://github.com/mleitao27/react-native-json-forms/issues/1)
+- [IOS rotation](https://github.com/mleitao27/react-native-json-forms/issues/2)
+- [Image Picker use dimensions](https://github.com/mleitao27/react-native-json-forms/issues/3)
+- [Matrix Dynamic implementation](https://github.com/mleitao27/react-native-json-forms/issues/6)
+- [Panel and Panel Dynamic implementation](https://github.com/mleitao27/react-native-json-forms/issues/7)
 ## Contributors
-- Miguel Leitão
-- Guilherme Eugénio
+- Miguel Leitão @ <mleitao27@gmail.com>
+- Guilherme Eugénio @ <mleitao27@gmail.com>
 ## License and Copyright
 © Miguel Leitão and Guilherme Eugénio, INESC-ID  
 Licensed under the [MIT License](LICENSE)
