@@ -19,7 +19,7 @@ Bellow there is an example of usage of the **Form** component imported from the 
 import React from 'react';
 import { ScrollView } from 'react-native';
 // Import the component from the package
-import Form from 'react-native-json-forms';
+import {Form} from 'react-native-json-forms';
 
 // Import JSON file with the form
 import data from './data.json';
