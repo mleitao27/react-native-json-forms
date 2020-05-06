@@ -300,7 +300,7 @@ const Form = props => {
                             onChange={onChange}
                             index={index}
                             pageIndex={pageIndex}
-                            props={e.props}
+                            props={e}
                         />
                     );
             });
