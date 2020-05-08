@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button, View, Dimensions, StyleSheet } from 'react-native';
 
 import BooleanElement from './elements/BooleanElement';
@@ -29,20 +29,38 @@ const Form = props => {
     // Form elements array
     let form = [];
     // Answer data array
-    let data = [];
+    const [data, setData] = useState([]);
+    const [submitted, setSubmitted] = useState(false);
+
+    const [allAnswered, setAllAnswered] = useState(false);
+
+    var coreElementFlag = false;
 
     const onChange = (pageIndex, index, value) => {
-        data[index] = {type: props.json.pages[pageIndex].elements[index].type, value: value};
+        var temp = data;
+        temp[index] = {type: props.json.pages[pageIndex].elements[index].type, value: value};
+        setData(temp);
+        
+        if (data.length === props.json.pages[pageIndex].elements.length) {
+            if (props.showSubmitButton === false)
+                if (submitted === false && coreElementFlag === false)
+                    onSubmit();
+            setAllAnswered(true);
+        }
     };
 
     const onSubmit = () => {
-        props.onSubmit(data);
+        if (allAnswered) {
+            props.onSubmit(data);
+            setSubmitted(true);
+        }
     };
 
     props.json.pages.map((page, pageIndex) => {
         page.elements.map((e, index) => {
         
-            if (e.type === 'boolean') 
+            if (e.type === 'boolean') {
+                coreElementFlag = true;
                 form.push(
                     <BooleanElement 
                         key={index} 
@@ -52,6 +70,7 @@ const Form = props => {
                         title={e.name} 
                     />
                 );
+            }
             else if (e.type === 'camera') 
                 form.push(
                     <CameraElement 
@@ -308,10 +327,13 @@ const Form = props => {
         });
     });
 
+    var submitButton = <Button title='Submit' onPress={onSubmit}/>;
+    if(props.showSubmitButton === false && coreElementFlag === false) submitButton = <View/>;
+
     return (
         <View style={styles.container}>
             {form}
-            <Button title='Submit' onPress={onSubmit}/>
+            {submitButton}
         </View>
     );
 };
