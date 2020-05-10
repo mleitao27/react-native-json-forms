@@ -9,7 +9,6 @@ import DateTimePickerElement from "./elements/DateTimePickerElement";
 import DropdownElement from './elements/DropdownElement';
 import ExpressionElement from './elements/ExpressionElement';
 import FileElement from './elements/FileElement';
-import GeolocationElement from './elements/GeolocationElement';
 import HtmlElement from './elements/HtmlElement';
 import ImageElement from './elements/ImageElement';
 import ImagePickerElement from "./elements/ImagePickerElement";
@@ -71,7 +70,8 @@ const Form = props => {
                     />
                 );
             }
-            else if (e.type === 'camera') 
+            else if (e.type === 'camera')  {
+                coreElementFlag = true;
                 form.push(
                     <CameraElement 
                         key={index} 
@@ -81,7 +81,9 @@ const Form = props => {
                         title={e.name}
                     />
                 );
-            else if (e.type === 'checkbox') 
+                }
+            else if (e.type === 'checkbox') {
+                coreElementFlag = true;
                 form.push(
                     <CheckboxElement 
                         key={index} 
@@ -92,7 +94,9 @@ const Form = props => {
                         items={e.choices} 
                     />
                 );
-            else if (e.type === 'comment') 
+                }
+            else if (e.type === 'comment') {
+                coreElementFlag = true;
                 form.push(
                     <CommentElement 
                         key={index} 
@@ -102,7 +106,9 @@ const Form = props => {
                         title={e.name}
                     />
                 );
-            else if (e.type === 'datepicker') 
+            }
+            else if (e.type === 'datepicker') {
+                coreElementFlag = true;
                 form.push(
                     <DateTimePickerElement 
                         key={index}
@@ -114,7 +120,9 @@ const Form = props => {
                         type={e.mode}
                     />
                 );
-            else if (e.type === 'timepicker') 
+            }
+            else if (e.type === 'timepicker') {
+                coreElementFlag = true;
                 form.push(
                     <DateTimePickerElement 
                         key={index}
@@ -126,7 +134,9 @@ const Form = props => {
                         type={e.mode}
                     />
                 );
-            else if (e.type === 'dropdown') 
+            }
+            else if (e.type === 'dropdown') {
+                coreElementFlag = true; 
                 form.push(
                     <DropdownElement
                         key={index}
@@ -137,7 +147,9 @@ const Form = props => {
                         items={e.choices} 
                     />
                 );
-            else if (e.type === 'expression') 
+            }
+            else if (e.type === 'expression') {
+                coreElementFlag = true; 
                 form.push(
                     <ExpressionElement
                         key={index}
@@ -148,7 +160,9 @@ const Form = props => {
                         expression={e.commentText}
                     />
                 );
-            else if (e.type === 'file') 
+            }
+            else if (e.type === 'file') {
+                coreElementFlag = true; 
                 form.push(
                     <FileElement
                         key={index}
@@ -158,7 +172,9 @@ const Form = props => {
                         title={e.name}
                     />
                 );
-            else if (e.type === 'geolocation') 
+            }
+            else if (e.type === 'geolocation') {
+                coreElementFlag = true; 
                 form.push(
                     <GeolocationElement
                         key={index}
@@ -167,7 +183,9 @@ const Form = props => {
                         pageIndex={pageIndex}
                     />
                 );
-            else if (e.type === 'html') 
+            }
+            else if (e.type === 'html') {
+                coreElementFlag = true; 
                 form.push(
                     <HtmlElement
                         key={index}
@@ -178,7 +196,9 @@ const Form = props => {
                         html={e.html}
                     />
                 );
-            else if (e.type === 'image') 
+            }
+            else if (e.type === 'image') {
+                coreElementFlag = true; 
                 form.push(
                     <ImageElement
                         key={index}
@@ -189,7 +209,9 @@ const Form = props => {
                         url={e.imageLink}
                     />
                 );
-            else if (e.type === 'imagepicker') 
+            }
+            else if (e.type === 'imagepicker') {
+                coreElementFlag = true; 
                 form.push(
                     <ImagePickerElement
                         key={index}
@@ -200,7 +222,9 @@ const Form = props => {
                         items={e.choices} 
                     />
                 );
-            else if (e.type === 'matrixdropdown') 
+            }
+            else if (e.type === 'matrixdropdown') {
+                coreElementFlag = true; 
                 form.push(
                     <MatrixDropdownElement
                         key={index}
@@ -213,7 +237,9 @@ const Form = props => {
                         choices={e.choices}
                     />
                 );
-            else if (e.type === 'matrixdynamic') 
+            }
+            else if (e.type === 'matrixdynamic') {
+                coreElementFlag = true; 
                 form.push(
                     <MatrixDynamicElement
                         key={index}
@@ -223,7 +249,9 @@ const Form = props => {
                         title={e.name}
                     />
                 );
-            else if (e.type === 'matrix') 
+            }
+            else if (e.type === 'matrix') {
+                coreElementFlag = true; 
                 form.push(
                     <MatrixElement
                         key={index}
@@ -235,7 +263,9 @@ const Form = props => {
                         columns={e.columns}
                     />
                 );
-            else if (e.type === 'multipletext') 
+            }
+            else if (e.type === 'multipletext') {
+                coreElementFlag = true; 
                 form.push(
                     <MultipleTextElement
                         key={index}
@@ -246,7 +276,9 @@ const Form = props => {
                         items={e.items}
                     />
                 );
-            else if (e.type === 'paneldynamic') 
+            }
+            else if (e.type === 'paneldynamic') {
+                coreElementFlag = true; 
                 form.push(
                     <PanelDynamicElement
                         key={index}
@@ -256,7 +288,9 @@ const Form = props => {
                         title={e.name}
                     />
                 );
-            else if (e.type === 'panel') 
+            }
+            else if (e.type === 'panel') {
+                coreElementFlag = true; 
                 form.push(
                     <PanelElement
                         key={index}
@@ -266,7 +300,9 @@ const Form = props => {
                         title={e.name}
                     />
                 );
-            else if (e.type === 'radiogroup') 
+            }
+            else if (e.type === 'radiogroup') {
+                coreElementFlag = true; 
                 form.push(
                     <RadioElement
                         key={index}
@@ -277,7 +313,9 @@ const Form = props => {
                         items={e.choices} 
                     />
                 );
-            else if (e.type === 'range') 
+            }
+            else if (e.type === 'range') {
+                coreElementFlag = true; 
                 form.push(
                     <RangeElement
                         key={index}
@@ -290,7 +328,9 @@ const Form = props => {
                         step={e.step} 
                     />
                 );
-            else if (e.type === 'rating') 
+            }
+            else if (e.type === 'rating') {
+                coreElementFlag = true; 
                 form.push(
                     <RatingElement
                         key={index}
@@ -300,7 +340,9 @@ const Form = props => {
                         title={e.name}
                     />
                 );
-            else if (e.type === 'text') 
+            }
+            else if (e.type === 'text') {
+                coreElementFlag = true; 
                 form.push(
                     <TextElement
                         key={index}
@@ -310,6 +352,7 @@ const Form = props => {
                         title={e.name} 
                     />
                 );
+            }
 
             props.extension.map(ext => {
                 if (e.type === ext.type)
