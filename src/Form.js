@@ -53,7 +53,10 @@ const Form = props => {
             props.onSubmit(data);
             setSubmitted(true);
         }
-        else Alert.alert('ERROR', 'All the survey fields must be answered.');
+        else {
+            if (props.showSubmitButton !== false)
+                Alert.alert('ERROR', 'All the survey fields must be answered.');
+        }
     };
 
     props.json.pages.map((page, pageIndex) => {
