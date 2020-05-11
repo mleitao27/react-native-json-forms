@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Button, View, Dimensions, StyleSheet } from 'react-native';
+import { Button, View, Dimensions, StyleSheet, Alert } from 'react-native';
 
 import BooleanElement from './elements/BooleanElement';
 import CameraElement from './elements/CameraElement';
@@ -53,6 +53,7 @@ const Form = props => {
             props.onSubmit(data);
             setSubmitted(true);
         }
+        else Alert.alert('ERROR', 'All the survey fields must be answered.');
     };
 
     props.json.pages.map((page, pageIndex) => {
