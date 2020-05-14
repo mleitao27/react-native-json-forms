@@ -49,13 +49,13 @@ const Form = props => {
     };
 
     const onSubmit = () => {
-        if (allAnswered) {
-            props.onSubmit(data);
-            setSubmitted(true);
+        if (props.showSubmitButton !== false) {
+            if (allAnswered) props.onSubmit(data);
+            else Alert.alert('ERROR', 'All the survey fields must be answered.');
         }
         else {
-            if (props.showSubmitButton !== false)
-                Alert.alert('ERROR', 'All the survey fields must be answered.');
+            props.onSubmit(data);
+            setSubmitted(true);
         }
     };
 
