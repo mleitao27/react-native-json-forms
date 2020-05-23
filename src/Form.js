@@ -153,7 +153,6 @@ const Form = props => {
                 );
             }
             else if (e.type === 'expression') {
-                coreElementFlag = true; 
                 form.push(
                     <ExpressionElement
                         key={index}
