@@ -37,7 +37,7 @@ const Form = props => {
 
     const onChange = (pageIndex, index, value) => {
         var temp = data;
-        temp[index] = {type: props.json.pages[pageIndex].elements[index].type, value: value};
+        temp[index] = {type: props.json.pages[pageIndex].elements[index].type, name: props.json.pages[pageIndex].elements[index].name, value: value};
         setData(temp);
         
         if (data.length === props.json.pages[pageIndex].elements.length) {
