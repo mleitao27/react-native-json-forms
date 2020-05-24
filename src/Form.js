@@ -35,12 +35,17 @@ const Form = props => {
 
     var coreElementFlag = false;
 
+    let alldefined = 0;
+
     const onChange = (pageIndex, index, value) => {
         var temp = data;
         temp[index] = {type: props.json.pages[pageIndex].elements[index].type, name: props.json.pages[pageIndex].elements[index].name, value: value};
         setData(temp);
-        
-        if (data.length === props.json.pages[pageIndex].elements.length) {
+
+        alldefined = 0;
+        data.map(() => alldefined++);
+
+        if (props.json.pages[pageIndex].elements.length === alldefined) {
             if (props.showSubmitButton === false)
                 if (submitted === false && coreElementFlag === false)
                     onSubmit();
