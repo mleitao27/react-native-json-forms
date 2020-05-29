@@ -33,7 +33,7 @@ const RangeElement = props => {
   const step = props.step || 1;
 
   return (
-    <View styel={styles.container}>
+    <View style={styles.container}>
       <Text style={styles.title}>{props.title}</Text>
       <Text style={styles.value}>{String(value)}</Text>
       <Slider
@@ -53,7 +53,7 @@ const RangeElement = props => {
 // Styles
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: Dimensions.get('window').height * 0.05
+    paddingBottom: Dimensions.get('window').height * 0.02
   },
   title: {
     fontSize: 18,

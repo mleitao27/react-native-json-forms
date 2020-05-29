@@ -113,7 +113,7 @@ const DateTimePickerElement = props => {
 // Styles
 const styles = StyleSheet.create({
   container: {
-    marginBottom: Dimensions.get('window').height * 0.02
+    paddingBottom: Dimensions.get('window').height * 0.02
   },
   inputContainer: {
     flexDirection: 'row',

@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        paddingVertical: Dimensions.get('window').height * 0.05
+        paddingBottom: Dimensions.get('window').height * 0.02
 
     },
     title: {
