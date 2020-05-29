@@ -34,12 +34,10 @@ const RadioElement = props => {
             <Text style={styles.title}>{props.title}</Text>
             {props.items.map((item, index) => {
                 return (
-                    <View key={index} style={styles.radioContainer} >
-                        <TouchableOpacity onPress={() => radioHandler(item)}>
-                            <Icon name={item === value ? "ios-radio-button-on" : "ios-radio-button-off"} size={24} color={Colors.primary} />
+                    <TouchableOpacity key={index} style={styles.radioContainer} onPress={() => radioHandler(item)}>
+                        <Icon name={item === value ? "ios-radio-button-on" : "ios-radio-button-off"} size={24} color={Colors.primary} />
                         <Text> {item}</Text>
-                        </TouchableOpacity>
-                    </View>
+                    </TouchableOpacity>
                 );
             })}
         </View>
