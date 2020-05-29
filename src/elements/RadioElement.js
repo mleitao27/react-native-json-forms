@@ -37,8 +37,8 @@ const RadioElement = props => {
                     <View key={index} style={styles.radioContainer} >
                         <TouchableOpacity onPress={() => radioHandler(item)}>
                             <Icon name={item === value ? "ios-radio-button-on" : "ios-radio-button-off"} size={24} color={Colors.primary} />
-                        </TouchableOpacity>
                         <Text> {item}</Text>
+                        </TouchableOpacity>
                     </View>
                 );
             })}
