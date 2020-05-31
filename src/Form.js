@@ -46,15 +46,15 @@ const Form = props => {
         data.map(() => alldefined++);
 
         if (props.json.pages[pageIndex].elements.length === alldefined) {
-            if (props.showSubmitButton === false)
-                if (submitted === false && coreElementFlag === false)
+            if (props.showSubmitButton === false  && coreElementFlag === false)
+                if (submitted === false)
                     onSubmit();
             setAllAnswered(true);
         }
     };
 
     const onSubmit = () => {
-        if (props.showSubmitButton !== false) {
+        if (props.showSubmitButton !== false || coreElementFlag === true) {
             if (allAnswered) props.onSubmit(data);
             else Alert.alert('ERROR', 'All the survey fields must be answered.');
         }
