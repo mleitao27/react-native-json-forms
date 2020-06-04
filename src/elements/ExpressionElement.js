@@ -12,6 +12,12 @@ import Colors from '../constants/colors';
 // Displays expression inside a box in the form screen
 const ExpressionElement = props => {
 
+    // On first render send default value in answer data in the form component
+    useEffect(() => {
+        // Send data through the onChange prop
+        props.onChange(props.pageIndex, props.index, '');
+    }, []);
+
     return (
         <View style={styles.container}>
             <Text style={styles.title}>{props.title}</Text>
