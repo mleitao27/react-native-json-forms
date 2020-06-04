@@ -96,7 +96,7 @@ const MatrixDropdownElement = props => {
 // Styles
 const styles = StyleSheet.create({
     container: {
-        paddingVertical: Dimensions.get('window').height * 0.05
+        paddingBottom: Dimensions.get('window').height * 0.02
     },
     title: {
         fontSize: 18,

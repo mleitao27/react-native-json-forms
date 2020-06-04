@@ -76,22 +76,22 @@ const ImagePickerElement = props => {
 // Style
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: Dimensions.get('window').height * 0.05
+    paddingBottom: Dimensions.get('window').height * 0.02
   },
   title: {
     fontSize: 18,
     marginBottom: Dimensions.get('window').height * 0.02
   },
   image: {
-    width: 95,
-    height: 95,
-    margin: 10,
+    width: Dimensions.get('window').width*0.15,
+    height: Dimensions.get('window').width*0.15,
+    margin: Dimensions.get('window').width*0.01,
 
   },
   imageSelect: {
-    width: 95,
-    height: 95,
-    margin: 10,
+    width: Dimensions.get('window').width*0.15,
+    height: Dimensions.get('window').width*0.15,
+    margin: Dimensions.get('window').width*0.01,
     borderColor: '#0FECCF',
     borderWidth: 4,
   },
