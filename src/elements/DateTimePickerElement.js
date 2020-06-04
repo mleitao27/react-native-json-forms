@@ -51,7 +51,7 @@ const DateTimePickerElement = props => {
       // If date picker selected
       if (props.mode === 'date')
         // Send formated date (dd-mm-yyyy)
-        data = `${selectedDateTime.getDate()}-${selectedDateTime.getMonth()}-${selectedDateTime.getFullYear()}`;
+        data = `${selectedDateTime.getDate()}-${selectedDateTime.getMonth() + 1}-${selectedDateTime.getFullYear()}`;
       // If time picker selected
       else if (props.mode === 'time')
         // Send formated time (hh:mm:ss)
