@@ -14,7 +14,7 @@ import {
 import { Camera } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
 import * as Permissions from 'expo-permissions';
-import Icon from "react-native-vector-icons/Ionicons";
+import { Ionicons } from '@expo/vector-icons';
 import Colors from '../constants/colors';
 
 // Allow to take photos, store them im the gallery, with preview and send base64 data
@@ -94,7 +94,7 @@ const CameraElement = props => {
                 <View style={styles.container}>
                     <Text style={styles.title}>{props.title}</Text>
                     <TouchableOpacity style={styles.button} onPress={() => setPhotoTaken(false)}>
-                        <Icon name='ios-camera' size={72} color={Colors.secondary} />
+                        <Ionicons name='ios-camera' size={72} color={Colors.secondary} />
                     </TouchableOpacity>
                 </View>
             );
@@ -108,7 +108,7 @@ const CameraElement = props => {
                         <ImageBackground style={{ flex: 1 }} source={{ uri: photoUri }}>
                             <View style={styles.iconContainer}>
                                 <TouchableOpacity onPress={() => setPhotoTaken(false)}>
-                                    <Icon name='ios-close' size={72} color={'white'} />
+                                    <Ionicons name='ios-close' size={72} color={'white'} />
                                 </TouchableOpacity>
                                 <TouchableOpacity
                                     onPress={() => {
@@ -116,7 +116,7 @@ const CameraElement = props => {
                                         props.onChange(props.pageIndex, props.index, 'photo base64');
                                     }}
                                 >
-                                    <Icon name='ios-checkmark' size={72} color={'white'} />
+                                    <Ionicons name='ios-checkmark' size={72} color={'white'} />
                                 </TouchableOpacity>
                             </View>
                         </ImageBackground>
@@ -130,7 +130,7 @@ const CameraElement = props => {
                         <View style={styles.content}>
                             <Image style={styles.preview} source={{ uri: photoUri }} />
                             <TouchableOpacity style={styles.button} onPress={() => setPhotoTaken(false)}>
-                                <Icon name='ios-camera' size={72} color={Colors.secondary} />
+                                <Ionicons name='ios-camera' size={72} color={Colors.secondary} />
                             </TouchableOpacity>
                         </View>
                     </View>
@@ -151,12 +151,12 @@ const CameraElement = props => {
                                         setValidatingPhoto(false);
                                     }
                                     else {
-                                        setPhotoTaken(true);
+                                        setPhotoTaken(null);
                                         setValidatingPhoto(false);
 
                                     }
                                 }}>
-                                    <Icon name='ios-close' size={50} color={'white'} />
+                                    <Ionicons name='ios-close' size={50} color={'white'} />
                                 </TouchableOpacity>
                             </View>
                             <View
@@ -169,10 +169,10 @@ const CameraElement = props => {
                                                 : Camera.Constants.Type.back
                                         );
                                     }}>
-                                    <Icon name='ios-reverse-camera' size={50} color={'white'} />
+                                    <Ionicons name='ios-reverse-camera' size={50} color={'white'} />
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={takePicture}>
-                                    <Icon name='ios-camera' size={50} color={'white'} />
+                                    <Ionicons name='ios-camera' size={50} color={'white'} />
                                 </TouchableOpacity>
                                 <TouchableOpacity
                                     onPress={() => {
@@ -183,7 +183,7 @@ const CameraElement = props => {
                                         );
                                     }}
                                 >
-                                    <Icon name={flash === Camera.Constants.FlashMode.on ? 'ios-flash' : 'ios-flash-off'} size={50} color={'white'} />
+                                    <Ionicons name={flash === Camera.Constants.FlashMode.on ? 'ios-flash' : 'ios-flash-off'} size={50} color={'white'} />
                                 </TouchableOpacity>
                             </View>
                         </Camera>
