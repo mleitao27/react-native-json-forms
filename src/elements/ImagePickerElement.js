@@ -53,7 +53,7 @@ const ImagePickerElement = props => {
     // Forces render
     setDummyState(!dummyState);
   };
-
+  
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{props.title}</Text>
@@ -64,13 +64,12 @@ const ImagePickerElement = props => {
               <TouchableOpacity onPress={onChange.bind(this, index)}>
                 <Image style={options[index] ? 
                   {...styles.imageSelect, 
-                    width: (Dimensions.get('window').width*0.94-props.margin*props.imagesPerLine*2)/props.imagesPerLine,
-                    height: (Dimensions.get('window').width*0.94-props.margin*props.imagesPerLine*2)/props.imagesPerLine,
-                    margin: props.margin  } 
-                  : {...styles.image, 
-                    width: (Dimensions.get('window').width*0.94-props.margin*props.imagesPerLine*2)/props.imagesPerLine,
-                    height: (Dimensions.get('window').width*0.94-props.margin*props.imagesPerLine*2)/props.imagesPerLine,
-                    margin:  props.margin }} 
+                    width: ((Dimensions.get('window').width*0.94-props.margin*props.imagesPerLine*2)/props.imagesPerLine) || (Dimensions.get('window').width*0.15),
+                    height: ((Dimensions.get('window').width*0.94-props.margin*props.imagesPerLine*2)/props.imagesPerLine) || (Dimensions.get('window').width*0.15),
+                    margin: props.margin || Dimensions.get('window').width*0.01 } 
+                  :{width: ((Dimensions.get('window').width*0.94-props.margin*props.imagesPerLine*2)/props.imagesPerLine) || (Dimensions.get('window').width*0.15),
+                    height: ((Dimensions.get('window').width*0.94-props.margin*props.imagesPerLine*2)/props.imagesPerLine) || (Dimensions.get('window').width*0.15),
+                    margin:  props.margin || Dimensions.get('window').width*0.01  }} 
                   source={{ uri: item.imageLink }} />
               </TouchableOpacity>
             </View>
@@ -90,14 +89,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: Dimensions.get('window').height * 0.02
   },
-  image: {
-    width: Dimensions.get('window').width*0.15,
-    height: Dimensions.get('window').width*0.15,
-  },
   imageSelect: {
-    width: Dimensions.get('window').width*0.15,
-    height: Dimensions.get('window').width*0.15,
-    margin: Dimensions.get('window').width*0.01,
     borderColor: 'yellowgreen',
     borderWidth: 3,
   },
