@@ -227,7 +227,9 @@ const Form = props => {
                         index={index}
                         pageIndex={pageIndex}
                         title={e.name}
-                        items={e.choices} 
+                        items={e.choices}
+                        imagesPerLine={e.imagesPerLine}
+                        margin={e.margin}
                     />
                 );
             }

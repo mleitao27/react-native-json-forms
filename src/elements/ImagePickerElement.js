@@ -54,7 +54,6 @@ const ImagePickerElement = props => {
     setDummyState(!dummyState);
   };
 
-
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{props.title}</Text>
@@ -63,7 +62,16 @@ const ImagePickerElement = props => {
           return (
             <View key={index}>
               <TouchableOpacity onPress={onChange.bind(this, index)}>
-                <Image style={options[index] ? styles.imageSelect : styles.image} source={{ uri: item.imageLink }} />
+                <Image style={options[index] ? 
+                  {...styles.imageSelect, 
+                    width: (Dimensions.get('window').width*0.94-props.margin*props.imagesPerLine*2)/props.imagesPerLine,
+                    height: (Dimensions.get('window').width*0.94-props.margin*props.imagesPerLine*2)/props.imagesPerLine,
+                    margin: props.margin  } 
+                  : {...styles.image, 
+                    width: (Dimensions.get('window').width*0.94-props.margin*props.imagesPerLine*2)/props.imagesPerLine,
+                    height: (Dimensions.get('window').width*0.94-props.margin*props.imagesPerLine*2)/props.imagesPerLine,
+                    margin:  props.margin }} 
+                  source={{ uri: item.imageLink }} />
               </TouchableOpacity>
             </View>
           );
@@ -85,15 +93,13 @@ const styles = StyleSheet.create({
   image: {
     width: Dimensions.get('window').width*0.15,
     height: Dimensions.get('window').width*0.15,
-    margin: Dimensions.get('window').width*0.01,
-
   },
   imageSelect: {
     width: Dimensions.get('window').width*0.15,
     height: Dimensions.get('window').width*0.15,
     margin: Dimensions.get('window').width*0.01,
-    borderColor: '#0FECCF',
-    borderWidth: 4,
+    borderColor: 'yellowgreen',
+    borderWidth: 3,
   },
   content: {
     flexDirection: "row",
