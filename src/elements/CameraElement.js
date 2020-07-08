@@ -9,7 +9,8 @@ import {
     Button,
     Image,
     ImageBackground,
-    StyleSheet
+    StyleSheet,
+    SafeAreaView
 } from 'react-native';
 import { Camera } from 'expo-camera';
 import * as MediaLibrary from 'expo-media-library';
@@ -42,6 +43,8 @@ const CameraElement = props => {
     // Taken photo uri
     const [photoUri, setPhotoUri] = useState('');
 
+    const [imageBase64, setImageBase64] = useState('');
+
     // On first render
     useEffect(() => {
         (async () => {
@@ -56,7 +59,7 @@ const CameraElement = props => {
     // When the take picture btn is pressed
     const takePicture = async () => {
         // Set options (after picture taken and base64 encoding)
-        const options = { onPictureSaved: saveInGallery, base64: false }
+        const options = { onPictureSaved: saveInGallery, base64: true }
         // Take photo
         if (camera) {
             let photo = await camera.takePictureAsync(options);
@@ -75,6 +78,7 @@ const CameraElement = props => {
             setPhotoTaken(true);
             // Go to photo validation mode
             setValidatingPhoto(true);
+            setImageBase64(photo.base64);
         }
     };
 
@@ -106,19 +110,23 @@ const CameraElement = props => {
                 return (
                     <Modal>
                         <ImageBackground style={{ flex: 1 }} source={{ uri: photoUri }}>
-                            <View style={styles.iconContainer}>
-                                <TouchableOpacity onPress={() => setPhotoTaken(false)}>
-                                    <Ionicons name='ios-close' size={72} color={'white'} />
-                                </TouchableOpacity>
-                                <TouchableOpacity
-                                    onPress={() => {
-                                        setValidatingPhoto(false);
-                                        props.onChange(props.pageIndex, props.index, 'photo base64');
-                                    }}
-                                >
-                                    <Ionicons name='ios-checkmark' size={72} color={'white'} />
-                                </TouchableOpacity>
-                            </View>
+                            <SafeAreaView style={{flex: 1}}>
+                                <View style={styles.iconContainer}>
+                                    <TouchableOpacity onPress={() => setPhotoTaken(false)}>
+                                        <Ionicons name='ios-close' size={50} color={'white'} />
+                                    </TouchableOpacity>
+                                    <TouchableOpacity
+                                        onPress={() => {
+                                            setValidatingPhoto(false);
+                                            var photoBase64 = new FormData();
+                                            photoBase64.append('image_data', imageBase64);
+                                            props.onChange(props.pageIndex, props.index, photoBase64);
+                                        }}
+                                    >
+                                        <Ionicons name='ios-checkmark' size={50} color={'white'} />
+                                    </TouchableOpacity>
+                                </View>
+                            </SafeAreaView>
                         </ImageBackground>
                     </Modal>
                 );
@@ -143,49 +151,50 @@ const CameraElement = props => {
                 <Modal animationType='slide'>
                     <View style={{ flex: 1 }}>
                         <Camera style={{ flex: 1 }} type={type} ref={ref => { setCamera(ref); }} ratio={'16:9'} flashMode={flash}>
-                            <View
-                                style={{ ...styles.iconContainer, flex: 0.5, alignItems: 'flex-start', justifyContent: 'flex-end' }}>
-                                <TouchableOpacity onPress={() => {
-                                    if (photoUri === '') {
-                                        setPhotoTaken(null);
-                                        setValidatingPhoto(false);
-                                    }
-                                    else {
-                                        setPhotoTaken(null);
-                                        setValidatingPhoto(false);
-
-                                    }
-                                }}>
-                                    <Ionicons name='ios-close' size={50} color={'white'} />
-                                </TouchableOpacity>
-                            </View>
-                            <View
-                                style={{ ...styles.iconContainer, flex: 0.5 }}>
-                                <TouchableOpacity
-                                    onPress={() => {
-                                        setType(
-                                            type === Camera.Constants.Type.back
-                                                ? Camera.Constants.Type.front
-                                                : Camera.Constants.Type.back
-                                        );
+                            <SafeAreaView style={{flex: 1}}>
+                                <View
+                                    style={{ ...styles.iconContainer, flex: 0.5, alignItems: 'flex-start', justifyContent: 'flex-end' }}>
+                                    <TouchableOpacity onPress={() => {
+                                        if (photoUri === '') {
+                                            setPhotoTaken(null);
+                                            setValidatingPhoto(false);
+                                        }
+                                        else {
+                                            setPhotoTaken(null);
+                                            setValidatingPhoto(false);
+                                        }
                                     }}>
-                                    <Ionicons name='ios-reverse-camera' size={50} color={'white'} />
-                                </TouchableOpacity>
-                                <TouchableOpacity onPress={takePicture}>
-                                    <Ionicons name='ios-camera' size={50} color={'white'} />
-                                </TouchableOpacity>
-                                <TouchableOpacity
-                                    onPress={() => {
-                                        setFlash(
-                                            flash === Camera.Constants.FlashMode.off
-                                                ? Camera.Constants.FlashMode.on
-                                                : Camera.Constants.FlashMode.off
-                                        );
-                                    }}
-                                >
-                                    <Ionicons name={flash === Camera.Constants.FlashMode.on ? 'ios-flash' : 'ios-flash-off'} size={50} color={'white'} />
-                                </TouchableOpacity>
-                            </View>
+                                        <Ionicons name='ios-close' size={50} color={'white'} />
+                                    </TouchableOpacity>
+                                </View>
+                                <View
+                                    style={{ ...styles.iconContainer, flex: 0.5 }}>
+                                    <TouchableOpacity
+                                        onPress={() => {
+                                            setType(
+                                                type === Camera.Constants.Type.back
+                                                    ? Camera.Constants.Type.front
+                                                    : Camera.Constants.Type.back
+                                            );
+                                        }}>
+                                        <Ionicons name='ios-reverse-camera' size={50} color={'white'} />
+                                    </TouchableOpacity>
+                                    <TouchableOpacity onPress={takePicture}>
+                                        <Ionicons name='ios-camera' size={50} color={'white'} />
+                                    </TouchableOpacity>
+                                    <TouchableOpacity
+                                        onPress={() => {
+                                            setFlash(
+                                                flash === Camera.Constants.FlashMode.off
+                                                    ? Camera.Constants.FlashMode.on
+                                                    : Camera.Constants.FlashMode.off
+                                            );
+                                        }}
+                                    >
+                                        <Ionicons name={flash === Camera.Constants.FlashMode.on ? 'ios-flash' : 'ios-flash-off'} size={50} color={'white'} />
+                                    </TouchableOpacity>
+                                </View>
+                            </SafeAreaView>
                         </Camera>
                     </View>
                 </Modal>
