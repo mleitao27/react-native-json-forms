@@ -53,7 +53,8 @@ const ImagePickerElement = props => {
     // Forces render
     setDummyState(!dummyState);
   };
-  
+
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{props.title}</Text>
@@ -62,15 +63,7 @@ const ImagePickerElement = props => {
           return (
             <View key={index}>
               <TouchableOpacity onPress={onChange.bind(this, index)}>
-                <Image style={options[index] ? 
-                  {...styles.imageSelect, 
-                    width: ((Dimensions.get('window').width*0.94-props.margin*props.imagesPerLine*2)/props.imagesPerLine) || (Dimensions.get('window').width*0.15),
-                    height: ((Dimensions.get('window').width*0.94-props.margin*props.imagesPerLine*2)/props.imagesPerLine) || (Dimensions.get('window').width*0.15),
-                    margin: props.margin || Dimensions.get('window').width*0.01 } 
-                  :{width: ((Dimensions.get('window').width*0.94-props.margin*props.imagesPerLine*2)/props.imagesPerLine) || (Dimensions.get('window').width*0.15),
-                    height: ((Dimensions.get('window').width*0.94-props.margin*props.imagesPerLine*2)/props.imagesPerLine) || (Dimensions.get('window').width*0.15),
-                    margin:  props.margin || Dimensions.get('window').width*0.01  }} 
-                  source={{ uri: item.imageLink }} />
+                <Image style={options[index] ? styles.imageSelect : styles.image} source={{ uri: item.imageLink }} />
               </TouchableOpacity>
             </View>
           );
@@ -89,9 +82,18 @@ const styles = StyleSheet.create({
     fontSize: 18,
     marginBottom: Dimensions.get('window').height * 0.02
   },
+  image: {
+    width: Dimensions.get('window').width*0.15,
+    height: Dimensions.get('window').width*0.15,
+    margin: Dimensions.get('window').width*0.01,
+
+  },
   imageSelect: {
+    width: Dimensions.get('window').width*0.15,
+    height: Dimensions.get('window').width*0.15,
+    margin: Dimensions.get('window').width*0.01,
     borderColor: 'yellowgreen',
-    borderWidth: 3,
+    borderWidth: 4,
   },
   content: {
     flexDirection: "row",
