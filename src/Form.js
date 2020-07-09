@@ -135,7 +135,7 @@ const Form = props => {
                 );
             }
             else if (e.type === 'timepicker') {
-                coreElementFlag = true;
+                if (e.mode === 'manual') coreElementFlag = true;
                 form.push(
                     <DateTimePickerElement 
                         key={index}
