@@ -65,6 +65,25 @@ The JSON file is organized in pages, where each page is an object with a name an
     ]
 }
 ```
+## Question's ID
+The questions ID is a feature introduced by version 1.1.0. Because the only way to correlate an answer with its question was through the **type** and **name** this could be limiting in terms of answer processing and analysis. So in order to associate an answer with its respective question an optional **id** field can be added to each element in the survey json. By using the ID feature in the json as shown below the answer to a specific question will also contain an **id** field with the same value as the question's id.
+```json
+{
+    "pages": [
+        {
+            "name": "page1",
+            "elements": [
+                {
+                    "type": "text",
+                    "name": "Is this the best forms tool in the world?",
+                    "id": "QUESTION_ID"
+                }		
+            ]
+        },
+        ...
+    ]
+}
+```
 
 ## Coming Soon
 The issues found will be solved and implemented in future versions. Issues to be solved soon:
