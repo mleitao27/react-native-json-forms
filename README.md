@@ -7,7 +7,7 @@ Tool to create forms in React Native from a JSON file containing the form descri
 
 Information about the elements can be found in the Wiki's [Elements Page](https://github.com/mleitao27/react-native-json-forms/wiki/Elements), there can be found brief description about the different form element that can be used, how to use them and the data extracted from their answers. Information about how to implement the extension mechanism is in the Wiki's [Extensions Page](https://github.com/mleitao27/react-native-json-forms/wiki/Extensions).
 
-This tool was built by two master student within the scope of their thesis project, if you use react-native-json-form it would be very helpful if you could send some feedback to the [contributors](Contributors). Information about the usage given to the tool, whether or not was easy to use, favorite and least favorite features and advices would be most apreceated. If possible you could also send a link to the project was used to be added to the [Projects Page](https://github.com/mleitao27/react-native-json-forms/wiki/Projects);
+This tool was built by two master student within the scope of their thesis project, if you use react-native-json-form it would be very helpful if you could send some feedback to the [contributors](#Contributors). Information about the usage given to the tool, whether or not was easy to use, favorite and least favorite features and advices would be most apreceated. If possible you could also send a link to the project was used to be added to the [Projects Page](https://github.com/mleitao27/react-native-json-forms/wiki/Projects).
 
 ## Installation
 ```
