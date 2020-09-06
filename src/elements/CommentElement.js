@@ -8,6 +8,12 @@ import {
     StyleSheet
 } from 'react-native';
 
+import Styles from '../constants/styles';
+
+// Window width and height used for styling purposes
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 // Comment box built with a large TextInput element
 const CommentElement = props => {
 
@@ -50,14 +56,15 @@ const CommentElement = props => {
 // Styles
 const styles = StyleSheet.create({
     container: {
-        paddingBottom: Dimensions.get('window').height * 0.02
+        paddingBottom: windowHeight * 0.02
     },
     headerContainer: {
         flexDirection: 'row',
-        marginBottom: Dimensions.get('window').height * 0.02
+        marginBottom: windowHeight * 0.02
     },
     title: {
-        fontSize: 18
+        fontSize: 18,
+        fontWeight: 'bold'
     },
     subTitle: {
         fontSize: 16
@@ -66,8 +73,12 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         textAlignVertical: 'top',
         fontSize: 16,
-        paddingVertical: Dimensions.get('window').height * 0.01,
-        paddingHorizontal: Dimensions.get('window').width * 0.02
+        paddingVertical: windowHeight * 0.01,
+        paddingHorizontal: windowWidth * 0.02,
+        borderWidth: 1,
+        borderColor: 'white',
+        borderRadius: (windowHeight+windowWidth) * 0.01,
+        ...Styles.shadow
     }
 });
 

@@ -8,6 +8,10 @@ import {
     Picker
 } from 'react-native';
 
+// Window width and height used for styling purposes
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 // Matrix Element that allows to select a value for each column by each row, with a dropdown menu
 const MatrixDropdownElement = props => {
 
@@ -96,23 +100,24 @@ const MatrixDropdownElement = props => {
 // Styles
 const styles = StyleSheet.create({
     container: {
-        paddingBottom: Dimensions.get('window').height * 0.02
+        paddingBottom: windowHeight * 0.02
     },
     title: {
         fontSize: 18,
-        marginBottom: Dimensions.get("window").height * 0.02,
+        marginBottom: windowHeight * 0.02,
+        fontWeight: 'bold'
     },
     headerContainer: {
         flexDirection: "row",
         justifyContent: "space-between",
-        marginLeft: Dimensions.get("window").width * 0.17
+        marginLeft: windowWidth * 0.17
 
     },
     bodyContainer: {
         flexDirection: "row",
         justifyContent: "space-between",
-        marginLeft: Dimensions.get("window").width * 0.030,
-        width: Dimensions.get("window").width * 0.80
+        marginLeft: windowWidth * 0.030,
+        width: windowWidth * 0.80
     },
 });
 

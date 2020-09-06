@@ -8,6 +8,10 @@ import {
     Dimensions
 } from 'react-native';
 
+// Window width and height used for styling purposes
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 // Image Element inserted by user built with react native Image component
 const ImageElement = props => {
     
@@ -33,11 +37,12 @@ const ImageElement = props => {
 // Styles
 const styles = StyleSheet.create({
     container: {
-        paddingBottom: Dimensions.get('window').height * 0.02
+        paddingBottom: windowHeight * 0.02
     },
     title: {
         fontSize: 18,
-        marginBottom: Dimensions.get('window').height * 0.02
+        marginBottom: windowHeight * 0.02,
+        fontWeight: 'bold'
     },
     imageContainer: {
         justifyContent: 'center',

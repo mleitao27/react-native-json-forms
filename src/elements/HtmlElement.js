@@ -12,6 +12,11 @@ import Icon from "react-native-vector-icons/Ionicons";
 import { WebView } from 'react-native-webview';
 
 import Colors from '../constants/colors';
+import Styles from '../constants/styles';
+
+// Window width and height used for styling purposes
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 // Displays expression inside a box in the form screen
 const HtmlElement = props => {
@@ -58,25 +63,30 @@ const HtmlElement = props => {
 // Styles
 const styles = StyleSheet.create({
     container: {
-        paddingBottom: Dimensions.get('window').height * 0.02
+        paddingBottom: windowHeight * 0.02
     },
     expressionContainer: {
         borderWidth: 1,
         borderColor: Colors.secondary,
         backgroundColor: Colors.secondary,
-        paddingHorizontal: Dimensions.get('window').width * 0.02,
-        paddingVertical: Dimensions.get('window').height * 0.02
+        paddingHorizontal: windowWidth * 0.02,
+        paddingVertical: windowHeight * 0.02
     },
     title: {
         fontSize: 18,
-        marginBottom: Dimensions.get('window').height * 0.02
+        marginBottom: windowHeight * 0.02,
+        fontWeight: 'bold'
     },
     html: {
-        height: Dimensions.get('window').height * 0.3
+        height: windowHeight * 0.3
     },
     htmlContainer: {
         borderWidth: 1,
-        borderColor: Colors.secondary
+        borderColor: 'white',
+        borderRadius: (windowHeight+windowWidth) * 0.01,
+        ...Styles.shadow,
+        overflow: 'hidden'
+
     },
     modalBackground: {
         flex: 1,
@@ -86,8 +96,8 @@ const styles = StyleSheet.create({
     },
     modalContainer: {
         backgroundColor: 'white',
-        width: Dimensions.get('window').width*0.8,
-        height: Dimensions.get('window').height*0.8,
+        width: windowWidth*0.8,
+        height: windowHeight*0.8,
         borderRadius: 20,
         overflow: 'hidden'
     },
@@ -95,7 +105,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'flex-end',
-        paddingHorizontal: Dimensions.get('window').width*0.05
+        paddingHorizontal: windowWidth*0.05
     }
 });
 

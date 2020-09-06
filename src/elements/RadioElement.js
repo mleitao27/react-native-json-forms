@@ -12,6 +12,10 @@ import Icon from "react-native-vector-icons/Ionicons";
 
 import Colors from "../constants/colors";
 
+// Window width and height used for styling purposes
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 // Radio choice inserted by user built with react native Icon and TouchableOpacity component
 const RadioElement = props => {
 
@@ -35,7 +39,7 @@ const RadioElement = props => {
             {props.items.map((item, index) => {
                 return (
                     <TouchableOpacity key={index} style={styles.radioContainer} onPress={() => radioHandler(item)}>
-                        <Icon name={item === value ? "ios-radio-button-on" : "ios-radio-button-off"} size={24} color={Colors.primary} />
+                        <Icon name={item === value ? "ios-radio-button-on" : "ios-radio-button-off"} size={24} color={Colors.sec} />
                         <Text> {item}</Text>
                     </TouchableOpacity>
                 );
@@ -47,11 +51,12 @@ const RadioElement = props => {
 // Styles
 const styles = StyleSheet.create({
     container: {
-        paddingBottom: Dimensions.get('window').height * 0.02
+        paddingBottom: windowHeight * 0.02
     },
     title: {
         fontSize: 18,
-        marginBottom: Dimensions.get("window").height * 0.02,
+        marginBottom: windowHeight * 0.02,
+        fontWeight: 'bold'
     },
     radioContainer: {
         flexDirection: 'row',

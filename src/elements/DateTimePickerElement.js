@@ -4,6 +4,11 @@ import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from "react-nati
 import DateTimePicker from "@react-native-community/datetimepicker";
 import Icon from "react-native-vector-icons/Ionicons";
 import Colors from "../constants/colors";
+import Styles from '../constants/styles';
+
+// Window width and height used for styling purposes
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 // Date and time pickers built with the DateTimePicker
 const DateTimePickerElement = props => {
@@ -57,7 +62,6 @@ const DateTimePickerElement = props => {
         // Send formated time (hh:mm:ss)
         data = `${selectedDateTime.getHours()}:${selectedDateTime.getMinutes()}:${selectedDateTime.getSeconds()}`;
 
-      setSelectedDatetime(data);
       // Save answer data with onChange prop
       props.onChange(props.pageIndex, props.index, data);
     }
@@ -76,19 +80,42 @@ const DateTimePickerElement = props => {
   // For auto input nothing is rendered
   let content = <View></View>;
 
+  let input = <View/>;
+  if (props.mode === 'date')
+    input = (
+      <View style={styles.textContainer}>
+        <Text style={styles.text}>{selectedDateTime ==! '' ? selectedDateTime.getDate() : ''}</Text>
+        <Text style={styles.text}>/</Text>
+        <Text style={styles.text}>{selectedDateTime ==! '' ? selectedDateTime.getMonth() + 1 : ''}</Text>
+        <Text style={styles.text}>/</Text>
+        <Text style={styles.text}>{selectedDateTime ==! '' ? selectedDateTime.getFullYear() : ''}</Text>
+      </View>
+    );
+  else
+      input = (
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>{selectedDateTime ==! '' ? selectedDateTime.getHours() : ''}</Text>
+          <Text style={styles.text}>:</Text>
+          <Text style={styles.text}>{selectedDateTime ==! '' ? selectedDateTime.getMinutes() : ''}</Text>
+        </View>
+      );
+
   // For manual input render pickers
   if (props.type === 'manual')
     content = (
       <View style={styles.container}>
         <Text style={styles.title}>{props.title}</Text>
+
         <View style={styles.inputContainer}>
+
+          {input}
+
           <TouchableOpacity style={styles.button} onPress={showDateTimepicker.bind(this, props.mode)}>
             <Icon name={props.mode === 'date' ? 'ios-calendar' : 'md-time'} size={24} color={Colors.secondary} />
           </TouchableOpacity>
-          <View style={styles.textContainer}>
-            <Text style={styles.text}>{selectedDateTime}</Text>
-          </View>
+
         </View>
+        
         {show && (
           <DateTimePicker
             testID="dateTimePicker"
@@ -113,30 +140,42 @@ const DateTimePickerElement = props => {
 // Styles
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: Dimensions.get('window').height * 0.02
+    paddingBottom: windowHeight * 0.02
   },
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    justifyContent: 'flex-start'
+    justifyContent: 'flex-end',
+    width: '50%',
+    borderWidth: 1,
+    borderRadius: (windowWidth + windowHeight) * 0.01,
+    borderColor: 'white',
+    ...Styles.shadow,
+    overflow: 'hidden'
   },
   textContainer: {
-    paddingHorizontal: Dimensions.get('window').width * 0.02
+    paddingHorizontal: windowWidth * 0.02,
+    flex: 1,
+    height: '100%',
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    backgroundColor: 'white'
   },
   title: {
     fontSize: 18,
-    marginBottom: Dimensions.get('window').height * 0.02
+    marginBottom: windowHeight * 0.02,
+    fontWeight: 'bold'
   },
   text: {
-    fontSize: 16
+    fontSize: 18,
+    paddingHorizontal: windowWidth * 0.025,
+    color: Colors.secondary,
   },
   button: {
-    borderColor: Colors.primary,
-    borderWidth: 1,
-    paddingHorizontal: Dimensions.get('window').height * 0.01,
-    paddingVertical: Dimensions.get('window').height * 0.01,
-    borderRadius: 5,
-    backgroundColor: Colors.primary
+    paddingHorizontal: windowHeight * 0.01,
+    paddingVertical: windowHeight * 0.01,
+    backgroundColor: 'white',
   }
 });
 

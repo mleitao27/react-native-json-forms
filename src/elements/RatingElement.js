@@ -9,6 +9,11 @@ import {
 } from "react-native";
 
 import Icon from "react-native-vector-icons/Ionicons";
+import Colors from "../constants/colors";
+
+// Window width and height used for styling purposes
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 // Rating inserted by user built with react native Icon and TouchableOpacity component
 const RatingElement = props => {
@@ -24,7 +29,8 @@ const RatingElement = props => {
 
     // When rating is inserted, state is changed and it updates answer data
     const RatingHandler = enteredValue => {
-        setValue(enteredValue);
+        if (enteredValue === value) setValue(0);
+        else setValue(enteredValue);
         props.onChange(props.pageIndex, props.index, enteredValue);
     };
 
@@ -33,15 +39,15 @@ const RatingElement = props => {
             <Text style={styles.title}>{props.title}</Text>
             <View style={styles.ratingContainer}>
                 <TouchableOpacity onPress={() => RatingHandler(1)}>
-                    <Icon name={value < 1 ? 'ios-star-outline' : 'ios-star'} size={36} color={Colors.primary} /></TouchableOpacity>
+                    <Icon name={"ios-star"} size={36} color={value < 1 ? Colors.secondary : Colors.primary} /></TouchableOpacity>
                 <TouchableOpacity onPress={() => RatingHandler(2)}>
-                    <Icon name={value < 2 ? "ios-star-outline" : "ios-star"} size={36} color={Colors.primary} /></TouchableOpacity>
+                    <Icon name={"ios-star"} size={36} color={value < 2 ? Colors.secondary : Colors.primary} /></TouchableOpacity>
                 <TouchableOpacity onPress={() => RatingHandler(3)}>
-                    <Icon name={value < 3 ? "ios-star-outline" : "ios-star"} size={36} color={Colors.primary} /></TouchableOpacity>
+                    <Icon name={"ios-star"} size={36} color={value < 3 ? Colors.secondary : Colors.primary} /></TouchableOpacity>
                 <TouchableOpacity onPress={() => RatingHandler(4)}>
-                    <Icon name={value < 4 ? "ios-star-outline" : "ios-star"} size={36} color={Colors.primary} /></TouchableOpacity>
+                    <Icon name={"ios-star"} size={36} color={value < 4 ? Colors.secondary : Colors.primary} /></TouchableOpacity>
                 <TouchableOpacity onPress={() => RatingHandler(5)}>
-                    <Icon name={value < 5 ? "ios-star-outline" : "ios-star"} size={36} color={Colors.primary} /></TouchableOpacity>
+                    <Icon name={"ios-star"} size={36} color={value < 5 ? Colors.secondary : Colors.primary} /></TouchableOpacity>
             </View>
         </View>
     );
@@ -50,15 +56,16 @@ const RatingElement = props => {
 // Styles
 const styles = StyleSheet.create({
     container: {
-        paddingBottom: Dimensions.get('window').height * 0.02
+        paddingBottom: windowHeight * 0.02
     },
     title: {
         fontSize: 18,
-        marginBottom: Dimensions.get("window").height * 0.02,
+        marginBottom: windowHeight * 0.02,
+        fontWeight: 'bold'
     },
     ratingContainer: {
         flexDirection: 'row',
-        width: Dimensions.get("window").width * 0.5,
+        width: windowWidth * 0.5,
         alignItems: 'center',
         justifyContent: 'space-between'
     },

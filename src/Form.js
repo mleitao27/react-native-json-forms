@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Button, View, Dimensions, StyleSheet, Alert } from 'react-native';
+import React, { useState } from 'react';
+import { View, Dimensions, StyleSheet, Alert } from 'react-native';
+
+import CustomButton from './components/CustomButton';
 
 import BooleanElement from './elements/BooleanElement';
 import CameraElement from './elements/CameraElement';
@@ -22,6 +24,10 @@ import RadioElement from './elements/RadioElement';
 import RangeElement from "./elements/RangeElement";
 import RatingElement from './elements/RatingElement';
 import TextElement from './elements/TextElement';
+
+// Window width and height used for styling purposes
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 const Form = props => {
 
@@ -382,7 +388,20 @@ const Form = props => {
         });
     });
 
-    var submitButton = <Button title='Submit' onPress={onSubmit}/>;
+    var submitButton = (
+        <CustomButton
+            title={'Submit'}
+            onPress={onSubmit}
+            backgroundColor={Colors.primary}
+            textColor={'white'}
+            width={'100%'}
+            height={windowHeight * 0.1}
+            borderRadius={(windowWidth+windowHeight)*0.01}
+            shadow={true}
+            bold={true}
+        />
+    );
+//<Button title='Submit' onPress={onSubmit}/>;
     if(props.showSubmitButton === false && coreElementFlag === false) submitButton = <View/>;
 
     return (

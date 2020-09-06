@@ -11,6 +11,10 @@ import {
 
 import Colors from '../constants/colors';
 
+// Window width and height used for styling purposes
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 // Checkbox list that allows selection of multiple options
 const CheckboxElement = props => {
 
@@ -79,7 +83,7 @@ const CheckboxElement = props => {
 // Styles
 const styles = StyleSheet.create({
     container: {
-        paddingBottom: Dimensions.get('window').height * 0.02
+        paddingBottom: windowHeight * 0.02
     },
     item: {
         flexDirection: 'row',
@@ -87,7 +91,8 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 18,
-        marginBottom: Dimensions.get('window').height * 0.02
+        marginBottom: windowHeight * 0.02,
+        fontWeight: 'bold'
     },
     options: {
         fontSize: 16

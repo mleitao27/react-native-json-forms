@@ -8,7 +8,11 @@ import {
   Dimensions 
 } from "react-native";
 
-import Colors from "../constants/colors";
+import Styles from '../constants/styles';
+
+// Window width and height used for styling purposes
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 // Multiple Text Boxes inserted by user built with react native TextInput component
 const MultipleTextElement = props => {
@@ -76,27 +80,30 @@ const MultipleTextElement = props => {
 // Styles
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: Dimensions.get('window').height * 0.02
+    paddingBottom: windowHeight * 0.02
   },
   title: {
     fontSize: 18,
-    marginBottom: Dimensions.get("window").height * 0.02,
+    marginBottom: windowHeight * 0.02,
+    fontWeight: 'bold'
   },
   input: {
     backgroundColor: 'white',
-    textAlignVertical: 'top',
+    textAlignVertical: 'center',
     fontSize: 16,
-    paddingVertical: Dimensions.get('window').height * 0.01,
-    paddingHorizontal: Dimensions.get('window').width * 0.02,
-    borderColor: Colors.secondary,
-    borderWidth: 1
+    paddingVertical: windowHeight * 0.01,
+    paddingHorizontal: windowWidth * 0.02,
+    borderWidth: 1,
+    borderColor: 'white',
+    borderRadius: (windowHeight+windowWidth) * 0.01,
+    ...Styles.shadow
   },
   text: {
     fontSize: 16,
-    marginBottom: Dimensions.get("window").height * 0.01
+    marginBottom: windowHeight * 0.01
   },
   content: {
-    paddingVertical: Dimensions.get('window').height * 0.01
+    paddingVertical: windowHeight * 0.01
   }
 });
 

@@ -9,6 +9,10 @@ import {
   Dimensions
 } from "react-native";
 
+// Window width and height used for styling purposes
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 // Image Picker by  user built with react native TouchableOpacity and Image component
 const ImagePickerElement = props => {
 
@@ -80,18 +84,19 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 18,
-    marginBottom: Dimensions.get('window').height * 0.02
+    marginBottom: Dimensions.get('window').height * 0.02,
+    fontWeight: 'bold'
   },
   image: {
-    width: Dimensions.get('window').width*0.15,
-    height: Dimensions.get('window').width*0.15,
-    margin: Dimensions.get('window').width*0.01,
+    width: windowWidth *0.15,
+    height: windowWidth *0.15,
+    margin: windowWidth *0.01,
 
   },
   imageSelect: {
-    width: Dimensions.get('window').width*0.15,
-    height: Dimensions.get('window').width*0.15,
-    margin: Dimensions.get('window').width*0.01,
+    width: windowWidth *0.15,
+    height: windowWidth *0.15,
+    margin: windowWidth *0.01,
     borderColor: 'yellowgreen',
     borderWidth: 4,
   },

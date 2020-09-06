@@ -10,6 +10,10 @@ import {
 
 import Icon from "react-native-vector-icons/Ionicons";
 
+// Window width and height used for styling purposes
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 // Matrix Element that allows to select a column by each row, with Radio Button Components
 const MatrixElement = props => {
 
@@ -88,23 +92,24 @@ const MatrixElement = props => {
 // Styles
 const styles = StyleSheet.create({
     container: {
-        paddingBottom: Dimensions.get('window').height * 0.02
+        paddingBottom: windowHeight * 0.02
     },
     title: {
         fontSize: 18,
-        marginBottom: Dimensions.get("window").height * 0.02,
+        marginBottom: windowHeight * 0.02,
+        fontWeight: 'bold'
     },
     headerContainer: {
         flexDirection: "row",
         justifyContent: "space-between",
-        marginLeft: Dimensions.get("window").width * 0.17
+        marginLeft: windowWidth * 0.17
 
     },
     bodyContainer: {
         flexDirection: "row",
         justifyContent: "space-between",
-        marginLeft: Dimensions.get("window").width * 0.10,
-        width: Dimensions.get("window").width * 0.65
+        marginLeft: windowWidth * 0.10,
+        width: windowWidth * 0.65
     },
 });
 

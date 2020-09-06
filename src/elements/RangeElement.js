@@ -10,6 +10,10 @@ import {
 
 import Colors from "../constants/colors";
 
+// Window width and height used for styling purposes
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
+
 // Range inserted by user built with react native Slider component
 const RangeElement = props => {
 
@@ -53,11 +57,12 @@ const RangeElement = props => {
 // Styles
 const styles = StyleSheet.create({
   container: {
-    paddingBottom: Dimensions.get('window').height * 0.02
+    paddingBottom: windowHeight * 0.02
   },
   title: {
     fontSize: 18,
-    marginBottom: Dimensions.get("window").height * 0.02,
+    marginBottom: windowHeight * 0.02,
+    fontWeight: 'bold'
   },
   slider: {
     shadowColor: "black",

@@ -17,6 +17,11 @@ import * as MediaLibrary from 'expo-media-library';
 import * as Permissions from 'expo-permissions';
 import { Ionicons } from '@expo/vector-icons';
 import Colors from '../constants/colors';
+import CustomButton from '../components/CustomButton';
+
+// Window width and height used for styling purposes
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 // Allow to take photos, store them im the gallery, with preview and send base64 data
 const CameraElement = props => {
@@ -97,9 +102,19 @@ const CameraElement = props => {
             return (
                 <View style={styles.container}>
                     <Text style={styles.title}>{props.title}</Text>
-                    <TouchableOpacity style={styles.button} onPress={() => setPhotoTaken(false)}>
-                        <Ionicons name='ios-camera' size={72} color={Colors.secondary} />
-                    </TouchableOpacity>
+                    <View style={styles.content}>
+                        <Image style={styles.preview} source={require('../assets/blank.png')} />
+                        <CustomButton
+                            title={<Ionicons name='ios-camera' size={72} color={Colors.secondary} />}
+                            onPress={() => setPhotoTaken(false)}
+                            backgroundColor={'white'}
+                            textColor={Colors.primary}
+                            width={windowWidth*0.4}
+                            height={windowWidth * 0.4}
+                            borderRadius={(windowWidth+windowHeight)*0.01}
+                            shadow={true}
+                        />
+                    </View>
                 </View>
             );
         }
@@ -137,9 +152,16 @@ const CameraElement = props => {
                         <Text style={styles.title}>{props.title}</Text>
                         <View style={styles.content}>
                             <Image style={styles.preview} source={{ uri: photoUri }} />
-                            <TouchableOpacity style={styles.button} onPress={() => setPhotoTaken(false)}>
-                                <Ionicons name='ios-camera' size={72} color={Colors.secondary} />
-                            </TouchableOpacity>
+                            <CustomButton
+                                title={<Ionicons name='ios-camera' size={72} color={Colors.secondary} />}
+                                onPress={() => setPhotoTaken(false)}
+                                backgroundColor={'white'}
+                                textColor={Colors.primary}
+                                width={windowWidth*0.4}
+                                height={windowWidth * 0.4}
+                                borderRadius={(windowWidth+windowHeight)*0.01}
+                                shadow={true}
+                            />
                         </View>
                     </View>
                 );
@@ -207,19 +229,21 @@ const CameraElement = props => {
 // Styles
 const styles = StyleSheet.create({
     container: {
-        paddingBottom: Dimensions.get('window').height * 0.02
+        paddingBottom: windowHeight * 0.02
     },
     content: {
         flexDirection: 'row',
-        justifyContent: 'space-between'
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
     title: {
         fontSize: 18,
-        marginBottom: Dimensions.get('window').height * 0.02
+        marginBottom: windowHeight * 0.02,
+        fontWeight: 'bold'
     },
     preview: {
-        width: Dimensions.get('window').width * 0.5,
-        height: Dimensions.get('window').width * 0.5
+        width: windowWidth * 0.5,
+        height: windowWidth * 0.5
     },
     iconContainer: {
         flex: 1,
@@ -227,18 +251,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'flex-end',
         justifyContent: 'space-between',
-        paddingHorizontal: Dimensions.get('window').width * 0.05
+        paddingHorizontal: windowWidth * 0.05
     },
     button: {
         flex: 1,
         borderColor: Colors.primary,
         borderWidth: 1,
-        padding: Dimensions.get('window').height * 0.01,
+        padding: windowHeight * 0.01,
         borderRadius: 5,
         backgroundColor: Colors.primary,
         alignItems: 'center',
         justifyContent: 'center',
-        margin: Dimensions.get('window').width * 0.1
+        margin: windowWidth * 0.1
     }
 });
 
