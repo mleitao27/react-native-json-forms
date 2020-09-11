@@ -62,40 +62,41 @@ const DateTimePickerElement = props => {
         // Send formated time (hh:mm:ss)
         data = `${selectedDateTime.getHours()}:${selectedDateTime.getMinutes()}:${selectedDateTime.getSeconds()}`;
 
-      // Save answer data with onChange prop
-      props.onChange(props.pageIndex, props.index, data);
-    }
-  };
-
-  const showMode = currentMode => {
-    setShow(true);
-    setMode(currentMode);
-  };
-
-  // Set mode (date/time) depending on props.mode
-  const showDateTimepicker = (mode) => {
-    showMode(mode);
-  };
-
-  // For auto input nothing is rendered
-  let content = <View></View>;
-
-  let input = <View/>;
-  if (props.mode === 'date')
-    input = (
-      <View style={styles.textContainer}>
-        <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getDate() : ''}</Text>
-        <Text style={styles.text}>/</Text>
-        <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getMonth() + 1 : ''}</Text>
-        <Text style={styles.text}>/</Text>
-        <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getFullYear() : ''}</Text>
-      </View>
-    );
+        setSelectedDatetime(selectedDateTime);
+        // Save answer data with onChange prop
+        props.onChange(props.pageIndex, props.index, data);
+      }
+    };
+    
+    const showMode = currentMode => {
+      setShow(true);
+      setMode(currentMode);
+    };
+    
+    // Set mode (date/time) depending on props.mode
+    const showDateTimepicker = (mode) => {
+      showMode(mode);
+    };
+    
+    // For auto input nothing is rendered
+    let content = <View></View>;
+    
+    let input = <View/>;
+    if (props.mode === 'date') 
+      input = (
+        <View style={styles.textContainer}>
+          <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getDate() : ''}</Text>
+          <Text style={selectedDateTime !== '' ? styles.separationText : {...styles.separationText, paddingHorizontal: windowWidth * 0.05}}>/</Text>
+          <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getMonth() + 1 : ''}</Text>
+          <Text style={selectedDateTime !== '' ? styles.separationText : {...styles.separationText, paddingHorizontal: windowWidth * 0.05}}>/</Text>
+          <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getFullYear() : ''}</Text>
+        </View>
+      );
   else
       input = (
         <View style={styles.textContainer}>
           <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getHours() : ''}</Text>
-          <Text style={styles.text}>:</Text>
+          <Text style={styles.separationText}>:</Text>
           <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getMinutes() : ''}</Text>
         </View>
       );
@@ -147,11 +148,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-end',
     width: '50%',
-    borderWidth: 1,
     borderRadius: (windowWidth + windowHeight) * 0.01,
-    borderColor: 'white',
     ...Styles.shadow,
-    overflow: 'hidden'
+    overflow: 'hidden',
   },
   textContainer: {
     paddingHorizontal: windowWidth * 0.02,
@@ -160,7 +159,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     flexDirection: 'row',
-    backgroundColor: 'white'
+    backgroundColor: 'white',
   },
   title: {
     fontSize: 18,
@@ -168,6 +167,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   text: {
+    fontSize: 18,
+    color: Colors.secondary,
+  },
+  separationText: {
     fontSize: 18,
     paddingHorizontal: windowWidth * 0.025,
     color: Colors.secondary,
