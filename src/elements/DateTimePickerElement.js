@@ -84,19 +84,19 @@ const DateTimePickerElement = props => {
   if (props.mode === 'date')
     input = (
       <View style={styles.textContainer}>
-        <Text style={styles.text}>{selectedDateTime ==! '' ? selectedDateTime.getDate() : ''}</Text>
+        <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getDate() : ''}</Text>
         <Text style={styles.text}>/</Text>
-        <Text style={styles.text}>{selectedDateTime ==! '' ? selectedDateTime.getMonth() + 1 : ''}</Text>
+        <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getMonth() + 1 : ''}</Text>
         <Text style={styles.text}>/</Text>
-        <Text style={styles.text}>{selectedDateTime ==! '' ? selectedDateTime.getFullYear() : ''}</Text>
+        <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getFullYear() : ''}</Text>
       </View>
     );
   else
       input = (
         <View style={styles.textContainer}>
-          <Text style={styles.text}>{selectedDateTime ==! '' ? selectedDateTime.getHours() : ''}</Text>
+          <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getHours() : ''}</Text>
           <Text style={styles.text}>:</Text>
-          <Text style={styles.text}>{selectedDateTime ==! '' ? selectedDateTime.getMinutes() : ''}</Text>
+          <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getMinutes() : ''}</Text>
         </View>
       );
 
