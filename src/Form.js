@@ -390,7 +390,7 @@ const Form = props => {
 
     var submitButton = (
         <CustomButton
-            title={typeof props.submitText !== 'undefined' ? props.submitText : 'Submit'}
+            title={typeof props.submitText !== 'undefined' ? typeof props.submitText === 'string' ? props.submitText : 'Submit' : 'Submit'}
             onPress={onSubmit}
             backgroundColor={Colors.primary}
             textColor={'white'}
