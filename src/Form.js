@@ -58,7 +58,7 @@ const Form = props => {
         notFilled = false;
         data.map((d) => {
             alldefined++;
-            if (d.required === true && value === '')
+            if (d.required === true && d.value === '')
                 notFilled = true;
         });
 
