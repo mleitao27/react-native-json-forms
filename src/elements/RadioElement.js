@@ -8,7 +8,7 @@ import {
     Dimensions
 } from 'react-native';
 
-import Icon from "react-native-vector-icons/Ionicons";
+import { Ionicons } from '@expo/vector-icons';
 
 import Colors from "../constants/colors";
 
@@ -39,7 +39,7 @@ const RadioElement = props => {
             {props.items.map((item, index) => {
                 return (
                     <TouchableOpacity key={index} style={styles.radioContainer} onPress={() => radioHandler(item)}>
-                        <Icon name={item === value ? "ios-radio-button-on" : "ios-radio-button-off"} size={24} color={Colors.sec} />
+                        <Ionicons name={item === value ? "ios-radio-button-on" : "ios-radio-button-off"} size={24} color={Colors.sec} />
                         <Text> {item}</Text>
                     </TouchableOpacity>
                 );

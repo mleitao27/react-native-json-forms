@@ -8,7 +8,7 @@ import {
     TouchableOpacity,
     Modal
 } from 'react-native';
-import Icon from "react-native-vector-icons/Ionicons";
+import { Ionicons } from '@expo/vector-icons';
 import { WebView } from 'react-native-webview';
 
 import Colors from '../constants/colors';
@@ -46,7 +46,7 @@ const HtmlElement = props => {
                     <View style={styles.modalContainer}>
                         <View style={styles.modalHeader}>
                             <TouchableOpacity onPress={() => setFocused(false)}>
-                                <Icon name='ios-close' size={56} color={Colors.primary} />
+                                <Ionicons name='ios-close' size={56} color={Colors.primary} />
                             </TouchableOpacity>
                         </View>
                         <WebView

@@ -8,7 +8,7 @@ import {
     TouchableOpacity
 } from "react-native";
 
-import Icon from "react-native-vector-icons/Ionicons";
+import { Ionicons } from '@expo/vector-icons';
 import Colors from "../constants/colors";
 
 // Window width and height used for styling purposes
@@ -39,15 +39,15 @@ const RatingElement = props => {
             <Text style={styles.title}>{props.title}</Text>
             <View style={styles.ratingContainer}>
                 <TouchableOpacity onPress={() => RatingHandler(1)}>
-                    <Icon name={"ios-star"} size={36} color={value < 1 ? Colors.secondary : Colors.primary} /></TouchableOpacity>
+                    <Ionicons name={"ios-star"} size={36} color={value < 1 ? Colors.secondary : Colors.primary} /></TouchableOpacity>
                 <TouchableOpacity onPress={() => RatingHandler(2)}>
-                    <Icon name={"ios-star"} size={36} color={value < 2 ? Colors.secondary : Colors.primary} /></TouchableOpacity>
+                    <Ionicons name={"ios-star"} size={36} color={value < 2 ? Colors.secondary : Colors.primary} /></TouchableOpacity>
                 <TouchableOpacity onPress={() => RatingHandler(3)}>
-                    <Icon name={"ios-star"} size={36} color={value < 3 ? Colors.secondary : Colors.primary} /></TouchableOpacity>
+                    <Ionicons name={"ios-star"} size={36} color={value < 3 ? Colors.secondary : Colors.primary} /></TouchableOpacity>
                 <TouchableOpacity onPress={() => RatingHandler(4)}>
-                    <Icon name={"ios-star"} size={36} color={value < 4 ? Colors.secondary : Colors.primary} /></TouchableOpacity>
+                    <Ionicons name={"ios-star"} size={36} color={value < 4 ? Colors.secondary : Colors.primary} /></TouchableOpacity>
                 <TouchableOpacity onPress={() => RatingHandler(5)}>
-                    <Icon name={"ios-star"} size={36} color={value < 5 ? Colors.secondary : Colors.primary} /></TouchableOpacity>
+                    <Ionicons name={"ios-star"} size={36} color={value < 5 ? Colors.secondary : Colors.primary} /></TouchableOpacity>
             </View>
         </View>
     );
