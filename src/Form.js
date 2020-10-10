@@ -42,24 +42,33 @@ const Form = props => {
     var coreElementFlag = false;
 
     let alldefined = 0;
+    let notFilled = false;
 
     const onChange = (pageIndex, index, value) => {
         var temp = data;
-        temp[index] = {type: props.json.pages[pageIndex].elements[index].type, name: props.json.pages[pageIndex].elements[index].name, value: value};
+        var element = props.json.pages[pageIndex].elements[index];
+        temp[index] = {type: element.type, name: element.name, value: value, required: typeof element.required === 'undefined' ? false : element.required === true ? true : false};
         
-        if (typeof props.json.pages[pageIndex].elements[index].id !== 'undefined')
-            temp[index]['id'] = props.json.pages[pageIndex].elements[index].id;
+        if (typeof element.id !== 'undefined')
+            temp[index]['id'] = element.id;
         
         setData(temp);
 
         alldefined = 0;
-        data.map(() => alldefined++);
+        notFilled = false;
+        data.map((d) => {
+            alldefined++;
+            if (d.required === true && value === '')
+                notFilled = true;
+        });
 
         if (props.json.pages[pageIndex].elements.length === alldefined) {
-            if (props.showSubmitButton === false  && coreElementFlag === false)
-                if (submitted === false)
-                    onSubmit();
-            setAllAnswered(true);
+            if (notFilled === false) {
+                if (props.showSubmitButton === false  && coreElementFlag === false)
+                    if (submitted === false)
+                        onSubmit();
+                setAllAnswered(true);
+            }
         }
     };
 
@@ -110,7 +119,8 @@ const Form = props => {
                         index={index} 
                         pageIndex={pageIndex}
                         title={e.name}
-                        items={e.choices} 
+                        items={e.choices}
+                        icon={e.icon}
                     />
                 );
                 }
