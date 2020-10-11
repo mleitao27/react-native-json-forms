@@ -91,6 +91,27 @@ The questions ID is a feature introduced by version 1.1.0. Because the only way 
 }
 ```
 
+## Required Elements
+The required elements is a feature introduced by version 1.1.8. By adding the **required** field to any of the form's elements impossibilitates its submission until those element's questions are answered. This field defaults to false should receive a boolean as value in the configuration JSON. Elements such as **expression**, **image**, **html** or any custom elements where the final answer may be an empty string may not be compatible with this feature.
+```json
+{
+    "pages": [
+        {
+            "name": "page1",
+            "elements": [
+                {
+                    "type": "text",
+                    "name": "Is this the best forms tool in the world?",
+                    "required": {true, false},
+                    "id": "QUESTION_ID"
+                }		
+            ]
+        },
+        ...
+    ]
+}
+```
+
 ## Coming Soon
 The issues found will be solved and implemented in future versions. Issues to be solved soon:
 - [Matrix and Matrix Dropdown fix layout](https://github.com/mleitao27/react-native-json-forms/issues/1)
