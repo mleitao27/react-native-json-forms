@@ -1,6 +1,6 @@
 // Imports
 import React, { useState, useEffect } from 'react';
-import Icon from "react-native-vector-icons/Ionicons";
+import { Ionicons, MaterialIcons } from '@expo/vector-icons';
 import {
     Text,
     View,
@@ -63,10 +63,12 @@ const CheckboxElement = props => {
 
     // Iterates through the options list received as prop
     props.items.map((i, index) => {
+        let icon = <Ionicons name={options[index] ? 'ios-checkmark-circle' : 'ios-checkmark-circle-outline'} size={24} color={Colors.primary} />;
+        if (props.icon === 'square') icon = <MaterialIcons name={options[index] ? 'check-box':'check-box-outline-blank'} size={24} color={Colors.primary} />;
         // Adds element, selected or not depending on the state
         form.push(
             <TouchableOpacity key={index} style={styles.item} onPress={onChange.bind(this, index)}>
-                <Icon name={options[index] ? 'ios-checkmark-circle' : 'ios-checkmark-circle-outline'} size={24} color={Colors.primary} />
+                {icon}
                 <Text style={styles.options}> {i}</Text>
             </TouchableOpacity>
         );

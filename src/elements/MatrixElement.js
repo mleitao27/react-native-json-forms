@@ -8,7 +8,7 @@ import {
     TouchableOpacity
 } from 'react-native';
 
-import Icon from "react-native-vector-icons/Ionicons";
+import { Ionicons } from '@expo/vector-icons';
 
 // Window width and height used for styling purposes
 const windowWidth = Dimensions.get('window').width;
@@ -73,7 +73,7 @@ const MatrixElement = props => {
                                 return (
                                     <View key={indexc} >
                                         <TouchableOpacity onPress={matrixHandler.bind(this, indexr, column)}>
-                                            <Icon 
+                                            <Ionicons 
                                             name={options[indexr].column === column ? "ios-radio-button-on" : "ios-radio-button-off"} 
                                             size={24} 
                                             color={Colors.primary} />
