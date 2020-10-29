@@ -1,8 +1,8 @@
 // Imports
 import React, { useState, useEffect } from "react";
-import { View, Text, TouchableOpacity, StyleSheet, Dimensions } from "react-native";
+import { View, Text, TouchableOpacity, StyleSheet, Dimensions, Platform } from "react-native";
 import DateTimePicker from "@react-native-community/datetimepicker";
-import Icon from "react-native-vector-icons/Ionicons";
+import { Ionicons } from '@expo/vector-icons'; 
 import Colors from "../constants/colors";
 import Styles from '../constants/styles';
 
@@ -46,13 +46,14 @@ const DateTimePickerElement = props => {
   // When a date or time is picked
   const onChange = (event, selectedDateTime) => {
     // Check if date/time was picked or popup dismissed
-    if (event.type === 'set') {
+    console.log(event);
+    if (event.type === 'set' || Platform.OS === 'ios') {
       var data = '';
       const currentDate = selectedDateTime || date;
-
+ 
       setShow(Platform.OS === 'ios');
       setDate(currentDate);
-
+ 
       // If date picker selected
       if (props.mode === 'date')
         // Send formated date (dd-mm-yyyy)
@@ -60,14 +61,14 @@ const DateTimePickerElement = props => {
       // If time picker selected
       else if (props.mode === 'time')
         // Send formated time (hh:mm:ss)
-        data = `${selectedDateTime.getHours()}:${selectedDateTime.getMinutes()}:${selectedDateTime.getSeconds()}`;
-
+        data = `${Platform.OS === 'ios' ? selectedDateTime.getUTCHours() : selectedDateTime.getHours()}:${selectedDateTime.getMinutes()}:${selectedDateTime.getSeconds()}`;
+ 
         setSelectedDatetime(selectedDateTime);
         // Save answer data with onChange prop
         props.onChange(props.pageIndex, props.index, data);
       }
+      else setShow(false);
     };
-    
     const showMode = currentMode => {
       setShow(true);
       setMode(currentMode);
@@ -85,19 +86,19 @@ const DateTimePickerElement = props => {
     if (props.mode === 'date') 
       input = (
         <View style={styles.textContainer}>
-          <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getDate() : ''}</Text>
+          <Text style={styles.text}>{selectedDateTime.toString().length > 1 ? selectedDateTime.getDate()  : ''}</Text>
           <Text style={selectedDateTime !== '' ? styles.separationText : {...styles.separationText, paddingHorizontal: windowWidth * 0.05}}>/</Text>
-          <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getMonth() + 1 : ''}</Text>
+          <Text style={styles.text}>{selectedDateTime.toString().length > 1 ? selectedDateTime.getMonth() + 1  : ''}</Text>
           <Text style={selectedDateTime !== '' ? styles.separationText : {...styles.separationText, paddingHorizontal: windowWidth * 0.05}}>/</Text>
-          <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getFullYear() : ''}</Text>
+          <Text style={styles.text}>{selectedDateTime.toString().length > 1 ? selectedDateTime.getFullYear() :  ''}</Text>
         </View>
       );
   else
       input = (
         <View style={styles.textContainer}>
-          <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getHours() : ''}</Text>
+          <Text style={styles.text}>{selectedDateTime.toString().length > 1 ? Platform.OS === 'ios' ? selectedDateTime.getUTCHours() : selectedDateTime.getHours() : ''}</Text>
           <Text style={styles.separationText}>:</Text>
-          <Text style={styles.text}>{selectedDateTime !== '' ? selectedDateTime.getMinutes() : ''}</Text>
+          <Text style={styles.text}>{selectedDateTime.toString().length > 1 ?  selectedDateTime.getMinutes() : ''}</Text>
         </View>
       );
 
@@ -112,7 +113,7 @@ const DateTimePickerElement = props => {
           {input}
 
           <TouchableOpacity style={styles.button} onPress={showDateTimepicker.bind(this, props.mode)}>
-            <Icon name={props.mode === 'date' ? 'ios-calendar' : 'md-time'} size={24} color={Colors.secondary} />
+            <Ionicons name={props.mode === 'date' ? 'ios-calendar' : 'md-time'} size={24} color={Colors.secondary} />
           </TouchableOpacity>
 
         </View>
