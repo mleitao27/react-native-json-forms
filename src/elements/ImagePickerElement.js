@@ -8,55 +8,60 @@ import {
   Text,
   Dimensions
 } from "react-native";
-
+ 
 // Window width and height used for styling purposes
 const windowWidth = Dimensions.get('window').width;
-
+ 
 // Image Picker by  user built with react native TouchableOpacity and Image component
 const ImagePickerElement = props => {
-
+ 
   // Variable used to update option's state
   let auxOptions = [];
   // State that stores the state of each option
   const [options, setOptions] = useState([]);
   // Dummy state used to force render
   const [dummyState, setDummyState] = useState(false);
+ 
+  // Set size factor if available
+  var sizeFactor = 0.08;
+  if (props.imageSize === 'small') sizeFactor = 0.2;
+  else if(props.imageSize === 'big') sizeFactor = 0.0600001;
+ 
   // Set size according to the number of images per line if available
-  const size = (windowWidth-(windowWidth * 0.08))/props.numberPerLine || windowWidth*0.25;
-
-
+  const size = (windowWidth * (1 - sizeFactor))/props.numberPerLine || windowWidth * 0.25;
+ 
   // Initially sets all options to false and sends an empty array as answer data
   useEffect(() => {
     for (var i = 0; i < props.items.length; i++)
       auxOptions[i] = false;
     // Send data through the onChange prop
     props.onChange(props.pageIndex, props.index, '');
-
+ 
     // Update options state
     setOptions(auxOptions);
   }, []);
-
+ 
   // Called everytime an image is pressed 
   const onChange = index => {
-
+ 
     // Array to save as answer data
     var data = [];
     var _index = null;
-
+ 
     // Fetch options from the state
     auxOptions = options;
-
+ 
     auxOptions.map((a,b) => {if(a)_index=b})
-
+ 
     // Change pressed option according to the multiple/single choice selected
     if(props.singleChoice != true || _index == null || _index == index)
     auxOptions[index] = !auxOptions[index];
-
+ 
     // Adds true options (checked) to the answer array
     auxOptions.map((option, index) => {
       if (option) data.push(props.items[index].value);
     });
-
+ 
     // Saves new state
     setOptions(auxOptions);
     // Sends answer data to the form component (parent)
@@ -64,8 +69,7 @@ const ImagePickerElement = props => {
     // Forces render
     setDummyState(!dummyState);
   };
-
-
+ 
   return (
     <View style={styles.container}>
       <Text style={styles.title}>{props.title}</Text>
@@ -83,7 +87,7 @@ const ImagePickerElement = props => {
     </View>
   );
 };
-
+ 
 // Style
 const styles = StyleSheet.create({
   container: {
@@ -109,5 +113,5 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   }
 });
-
+ 
 export default ImagePickerElement;

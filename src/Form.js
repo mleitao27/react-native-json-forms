@@ -250,6 +250,7 @@ const Form = props => {
                         items={e.choices} 
                         numberPerLine={e.numberPerLine}
                         singleChoice={e.singleChoice}
+                        imageSize={e.imageSize}
                     />
                 );
             }
@@ -427,7 +428,7 @@ const Form = props => {
 const styles = StyleSheet.create({
     container: {
         paddingHorizontal: Dimensions.get('window').width * 0.03,
-        paddingVertical: Dimensions.get('window').height * 0.03,
+        paddingVertical: Dimensions.get('window').height * 0.03
     }
 });
 

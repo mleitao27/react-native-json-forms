@@ -46,7 +46,6 @@ const DateTimePickerElement = props => {
   // When a date or time is picked
   const onChange = (event, selectedDateTime) => {
     // Check if date/time was picked or popup dismissed
-    console.log(event);
     if (event.type === 'set' || Platform.OS === 'ios') {
       var data = '';
       const currentDate = selectedDateTime || date;
