@@ -58,7 +58,7 @@ const Form = props => {
         notFilled = false;
         data.map((d) => {
             alldefined++;
-            if (d.required === true && d.value === '')
+            if (d.required === true && d.value.length === 0)
                 notFilled = true;
         });
 
@@ -248,6 +248,8 @@ const Form = props => {
                         pageIndex={pageIndex}
                         title={e.name}
                         items={e.choices} 
+                        numberPerLine={e.numberPerLine}
+                        singleChoice={e.singleChoice}
                     />
                 );
             }

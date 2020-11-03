@@ -11,7 +11,6 @@ import {
 
 // Window width and height used for styling purposes
 const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
 
 // Image Picker by  user built with react native TouchableOpacity and Image component
 const ImagePickerElement = props => {
@@ -22,6 +21,8 @@ const ImagePickerElement = props => {
   const [options, setOptions] = useState([]);
   // Dummy state used to force render
   const [dummyState, setDummyState] = useState(false);
+  // Set size according to the number of images per line if available
+  const size = (windowWidth-(windowWidth * 0.08))/props.numberPerLine || windowWidth*0.25;
 
 
   // Initially sets all options to false and sends an empty array as answer data
@@ -29,7 +30,8 @@ const ImagePickerElement = props => {
     for (var i = 0; i < props.items.length; i++)
       auxOptions[i] = false;
     // Send data through the onChange prop
-    props.onChange(props.pageIndex, props.index, []);
+    props.onChange(props.pageIndex, props.index, '');
+
     // Update options state
     setOptions(auxOptions);
   }, []);
@@ -39,10 +41,15 @@ const ImagePickerElement = props => {
 
     // Array to save as answer data
     var data = [];
+    var _index = null;
 
     // Fetch options from the state
     auxOptions = options;
-    // Change pressed option
+
+    auxOptions.map((a,b) => {if(a)_index=b})
+
+    // Change pressed option according to the multiple/single choice selected
+    if(props.singleChoice != true || _index == null || _index == index)
     auxOptions[index] = !auxOptions[index];
 
     // Adds true options (checked) to the answer array
@@ -67,7 +74,7 @@ const ImagePickerElement = props => {
           return (
             <View key={index}>
               <TouchableOpacity onPress={onChange.bind(this, index)}>
-                <Image style={options[index] ? styles.imageSelect : styles.image} source={{ uri: item.imageLink }} />
+                <Image style={{...(options[index] ? styles.imageSelect : styles.image), width: size, height: size  }} source={{ uri: item.imageLink }} />
               </TouchableOpacity>
             </View>
           );
@@ -88,17 +95,13 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
   image: {
-    width: windowWidth *0.15,
-    height: windowWidth *0.15,
-    margin: windowWidth *0.01,
-
+    borderWidth: 0,
+    marginBottom: windowWidth * 0.02
   },
   imageSelect: {
-    width: windowWidth *0.15,
-    height: windowWidth *0.15,
-    margin: windowWidth *0.01,
-    borderColor: 'yellowgreen',
+    borderColor: 'grey',
     borderWidth: 4,
+    marginBottom: windowWidth * 0.02
   },
   content: {
     flexDirection: "row",
