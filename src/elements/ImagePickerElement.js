@@ -54,8 +54,11 @@ const ImagePickerElement = props => {
     auxOptions.map((a,b) => {if(a)_index=b})
  
     // Change pressed option according to the multiple/single choice selected
-    if(props.singleChoice != true || _index == null || _index == index)
-    auxOptions[index] = !auxOptions[index];
+    if (props.singleChoice == true && _index != index) {
+      auxOptions[index] = !auxOptions[index];
+      auxOptions[_index] = !auxOptions[_index];
+    }      
+    else auxOptions[index] = !auxOptions[index];
  
     // Adds true options (checked) to the answer array
     auxOptions.map((option, index) => {
@@ -103,7 +106,7 @@ const styles = StyleSheet.create({
     marginBottom: windowWidth * 0.02
   },
   imageSelect: {
-    borderColor: 'grey',
+    borderColor: '#60b366',
     borderWidth: 4,
     marginBottom: windowWidth * 0.02
   },
