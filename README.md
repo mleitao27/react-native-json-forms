@@ -46,15 +46,15 @@ export default FormScreen;
 ```
 
 ### Props
-#### - json:
+#### - json(required):
 Passes a JSON file containing the description of the form structure and details.  
-#### - extension:
+#### - extension(required):
 Passes a JavaScript file containing the description of the extension elements that the user wants to implement.
-#### - onSubmit:
+#### - onSubmit(required):
 Passes a function that receives an JavaScript object as argument containing the answer to the form.
-#### - showSubmitButton:
+#### - showSubmitButton(optional):
 Boolean that when false hides the submit button, useful when extension elements do not require/cannot have submit button. If any of the core elements is used the button automatically appear even when **showSubmitButton** is set to false.
-#### - submitText:
+#### - submitText(optional):
 String that allows to customize the submit button text.
 ### JSON File
 The JSON file is organized in pages, where each page is an object with a name and an elements array. Bellow there is a snipet with the json structure with only one page. Possible content for the elements array can be found in the [Elements Page](https://github.com/mleitao27/react-native-json-forms/wiki/Elements) as mention above. 
